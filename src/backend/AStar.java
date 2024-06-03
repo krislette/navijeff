@@ -8,6 +8,6 @@ public class AStar {
     // Test 2
 
     // Comment
-   
+    // BAGONG COMMENT
 
 }
