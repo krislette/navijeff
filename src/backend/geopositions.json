@@ -1,0 +1,236 @@
+{
+    "nodes": [
+        {
+            "location": "Sto. Niño de Bagong Silang Parish",
+            "latitude": 14.775417380181809, 
+            "longitude": 121.04485533985091
+        }, 
+        {
+            "location": "Monumento",
+            "latitude": 14.657255804760117,
+            "longitude": 120.98250666468125
+        }, 
+        {
+            "location": "Polo Public Market",
+            "latitude": 14.708682080878102, 
+            "longitude": 120.94772465912094 
+        }, 
+        {
+            "location": "Naval St. Navotas",
+            "latitude": 14.673070194269735, 
+            "longitude": 120.9352851717105
+        }, 
+        {
+            "location": "Malabon City Square",
+            "latitude": 14.657597305063863, 
+            "longitude": 120.96127728709507
+        }, 
+        {
+            "location": "Manila: Quiapo",
+            "latitude": 14.598485051480875, 
+            "longitude": 120.98398217769233
+        }, 
+        {
+            "location": "San Juan Comelec",
+            "latitude": 14.603835316401534, 
+            "longitude": 121.02732169039227
+        }, 
+        {
+            "location": "Pasig Blvd. Ext.",
+            "latitude": 14.566120841274016,
+            "longitude": 121.07767751198017
+        }, 
+        {
+            "location": "SM City Marikina",
+            "latitude": 14.625779958779043, 
+            "longitude": 121.0835009311727
+        }, 
+        {
+            "location": "EDSA Central Jeep Terminal",
+            "latitude": 14.580315380815517, 
+            "longitude": 121.05456526544948
+        }, 
+        {
+            "location": "Gateway Mall",
+            "latitude": 14.62035932101467,
+            "longitude": 121.05566698624321
+        }, 
+        {
+            "location": "SM City Fairview",
+            "latitude": 14.732981753531336,
+            "longitude": 121.05565966004717
+        }
+    ],
+    "edges": [
+        {
+            "source": "Sto. Niño de Bagong Silang Parish",
+            "destination": "SM City Fairview",
+            "distance": 7.0
+        }, 
+        {
+            "source": "SM City Fairview",
+            "destination": "Sto. Niño de Bagong Silang Parish",
+            "distance": 7.5
+        }, 
+        {
+            "source": "SM City Fairview",
+            "destination": "Gateway Mall",
+            "distance": 16.1
+        }, 
+        {
+            "source": "Gateway Mall",
+            "destination": "SM City Fairview",
+            "distance": 18.1
+        }, 
+        {
+            "source": "Gateway Mall",
+            "destination": "SM City Marikina",
+            "distance": 6.1
+        }, 
+        {
+            "source": "SM City Marikina",
+            "destination": "Gateway Mall",
+            "distance": 6.6
+        }, 
+        {
+            "source": "Gateway Mall",
+            "destination": "San Juan Comelec",
+            "distance": 4.7
+        }, 
+        {
+            "source": "San Juan Comelec",
+            "destination": "Gateway Mall",
+            "distance": 4.2
+        }, 
+        {
+            "source": "Gateway Mall",
+            "destination": "Manila: Quiapo",
+            "distance": 8.2
+        }, 
+        {
+            "source": "Manila: Quiapo",
+            "destination": "Gateway Mall",
+            "distance": 8.0
+        }, 
+        {
+            "source": "SM City Marikina",
+            "destination": "Pasig Blvd. Ext.",
+            "distance": 9.5
+        }, 
+        {
+            "source": "Pasig Blvd. Ext.",
+            "destination": "SM City Marikina",
+            "distance": 10.6
+        }, 
+        {
+            "source": "Pasig Blvd. Ext.",
+            "destination": "EDSA Central Jeep Terminal",
+            "distance": 4.9
+        }, 
+        {
+            "source": "EDSA Central Jeep Terminal",
+            "destination": "Pasig Blvd. Ext.",
+            "distance": 3.2
+        }, 
+        {
+            "source": "EDSA Central Jeep Terminal",
+            "destination": "San Juan Comelec",
+            "distance": 5.4
+        }, 
+        {
+            "source": "San Juan Comelec",
+            "destination": "EDSA Central Jeep Terminal",
+            "distance": 6.1
+        }, 
+        {
+            "source": "San Juan Comelec",
+            "destination": "Manila: Quiapo",
+            "distance": 5.0
+        }, 
+        {
+            "source": "Manila: Quiapo",
+            "destination": "San Juan Comelec",
+            "distance": 5.9
+        }, 
+        {
+            "source": "Manila: Quiapo",
+            "destination": "Monumento",
+            "distance": 7.7
+        }, 
+        {
+            "source": "Monumento",
+            "destination": "Manila: Quiapo",
+            "distance": 8.1
+        }, 
+        {
+            "source": "Manila: Quiapo",
+            "destination": "Malabon City Square",
+            "distance": 9.3
+        }, 
+        {
+            "source": "Malabon City Square",
+            "destination": "Manila: Quiapo",
+            "distance": 10.8
+        }, 
+        {
+            "source": "Manila: Quiapo",
+            "destination": "Naval St. Navotas",
+            "distance": 10.6
+        }, 
+        {
+            "source": "Naval St. Navotas",
+            "destination": "Manila: Quiapo",
+            "distance": 12.3
+        }, 
+        {
+            "source": "Monumento",
+            "destination": "Polo Public Market",
+            "distance": 8.0
+        }, 
+        {
+            "source": "Polo Public Market",
+            "destination": "Monumento",
+            "distance": 8.0
+        }, 
+        {
+            "source": "Monumento",
+            "destination": "Malabon City Square",
+            "distance": 2.5
+        }, 
+        {
+            "source": "Malabon City Square",
+            "destination": "Monumento",
+            "distance": 4.1
+        }, 
+        {
+            "source": "Monumento",
+            "destination": "Naval St. Navotas",
+            "distance": 4.9
+        }, 
+        {
+            "source": "Monumento",
+            "destination": "Naval St. Navotas",
+            "distance": 5.0
+        }, 
+        {
+            "source": "Polo Public Market",
+            "destination": "Malabon City Square",
+            "distance": 7.1
+        }, 
+        {
+            "source": "Malabon City Square",
+            "destination": "Polo Public Market",
+            "distance": 7.9
+        }, 
+        {
+            "source": "Malabon City Square",
+            "destination": "Naval St. Navotas",
+            "distance": 2.6
+        }, 
+        {
+            "source": "Naval St. Navotas",
+            "destination": "Malabon City Square",
+            "distance": 2.8
+        }
+    ]
+}

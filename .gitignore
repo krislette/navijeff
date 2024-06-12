@@ -1,1 +1,4 @@
 /nbproject/private/
+/dist/
+/test/
+config.js
