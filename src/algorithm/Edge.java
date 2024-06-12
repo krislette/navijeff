@@ -2,9 +2,9 @@ package algorithm;
 
 public class Edge {
     
-    private Node source;
-    private Node destination;
-    private double distance;
+    private final Node source;
+    private final Node destination;
+    private final double distance;
 
     public Edge(Node source, Node destination, double distance) {
         this.source = source;

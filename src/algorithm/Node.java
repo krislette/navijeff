@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Node {
     
-    private String location;
-    private double latitude;
-    private double longitude;
-    private List<Edge> edges;
+    private final String location;
+    private final double latitude;
+    private final double longitude;
+    private final List<Edge> edges;
 
     public Node(String location, double latitude, double longitude) {
         this.location = location;

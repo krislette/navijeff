@@ -25,8 +25,8 @@ public class Main extends Application {
     private static Map<String, Node> nodeMap;
     private static List<Edge> edges;
     private WebEngine webEngine;
-    private static String sourceLocation;
-    private static String destinationLocation;
+    private static String srcLocation;
+    private static String destLocation;
 
     // Create NODES and EDGES
     public static void main(String[] args) {
@@ -57,15 +57,15 @@ public class Main extends Application {
             for (int i = 0; i < edgesArray.length(); i++) {
                 JSONObject edgeObject = edgesArray.getJSONObject(i);
                 String sourceLocation = edgeObject.getString("source");
-                String destLocation = edgeObject.getString("destination");
+                String destinationLocation = edgeObject.getString("destination");
                 double distance = edgeObject.getDouble("distance");
 
                 Node sourceNode = nodeMap.get(sourceLocation);
-                Node destNode = nodeMap.get(destLocation);
+                Node destNode = nodeMap.get(destinationLocation);
                 if (sourceNode != null && destNode != null) {
                     edges.add(new Edge(sourceNode, destNode, distance));
                 } else {
-                    System.out.println("Node not found for source or destination: " + sourceLocation + " -> " + destLocation);
+                    System.out.println("Node not found for source or destination: " + srcLocation + " -> " + destLocation);
                 }
             }
             
@@ -108,15 +108,15 @@ public class Main extends Application {
     
     // SOURCE and DESTINATION input scanner
     public void setLocations(String source, String destination) {
-        sourceLocation = source;
-        destinationLocation = destination;
+        srcLocation = source;
+        destLocation = destination;
         calculateAndDrawPath();
     }
 
     // Function to calculate and draw path using A* algorithm
     private void calculateAndDrawPath() {
-        Node sourceNode = nodeMap.get(sourceLocation);
-        Node destNode = nodeMap.get(destinationLocation);
+        Node sourceNode = nodeMap.get(srcLocation);
+        Node destNode = nodeMap.get(destLocation);
 
         if (sourceNode != null && destNode != null) {
             List<Node> path = AStar.findPath(sourceNode, destNode, edges);
