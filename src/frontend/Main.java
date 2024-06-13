@@ -19,6 +19,8 @@ import java.util.Map;
 import algorithm.Edge;
 import algorithm.Node;
 import algorithm.AStar;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 
 public class Main extends Application {
 
@@ -79,31 +81,16 @@ public class Main extends Application {
     // WEBVIEW
     @Override
     public void start(Stage stage) {
-        WebView webView = new WebView();
-        webEngine = webView.getEngine();
-
-        System.setProperty("prism.forceGPU", "true");
-        System.setProperty("sun.java2d.opengl", "true");
-
-        String localUrl = Paths.get("src/backend/map.html").toUri().toString();
-        webEngine.load(localUrl);
-
-        Scene scene = new Scene(webView, 800, 630);
-        stage.setTitle("NaviJeff");
-        stage.setScene(scene);
-        stage.show();
-
-        // Log the current URL and any errors
-        webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
-            if (newState == javafx.concurrent.Worker.State.SUCCEEDED) {
-                System.out.println("Loaded: " + webEngine.getLocation());
-                JSObject window = (JSObject) webEngine.executeScript("window");
-                window.setMember("javaApp", this);
-            } else if (newState == javafx.concurrent.Worker.State.FAILED) {
-                System.out.println("Failed to load: " + webEngine.getLocation());
-                webEngine.getLoadWorker().getException().printStackTrace();
-            }
-        });
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Scene.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            stage.setScene(scene);
+            stage.setTitle("NaviJeff");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     // SOURCE and DESTINATION input scanner
