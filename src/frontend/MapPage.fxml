@@ -10,7 +10,7 @@
         <URL value="@style.css" />
     </stylesheets>
     <children>
-        <WebView fx:id="webView" prefHeight="500.0" prefWidth="800" />
+        <WebView fx:id="webView" prefHeight="500.0" />
       <Button layoutX="96.0" layoutY="189.0" mnemonicParsing="false" onAction="#switchToLandingPage" text="return" />
     </children>
 </AnchorPane>

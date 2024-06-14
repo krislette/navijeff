@@ -47,10 +47,21 @@ public class Controller implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        currLocation.setItems(FXCollections.observableArrayList ("Sto. Nino de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC", "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila:Quiapo", "San Juan Comelec", "Pasig Blvd. Ext.", "SM City Marikina", "EDSA Central Jeep Terminal", "Gateway Mall", "SM City Fairview"));
-        trgtLocation.setItems(FXCollections.observableArrayList ("Sto. Nino de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC", "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila:Quiapo", "San Juan Comelec", "Pasig Blvd. Ext.", "SM City Marikina", "EDSA Central Jeep Terminal", "Gateway Mall", "SM City Fairview"));
-        // Still thinking of this method and other ways to optimize it 
-        // Because it logs that webview is null
+        if (currLocation != null && trgtLocation != null) {
+            currLocation.setItems(FXCollections.observableArrayList(
+                "Sto. Nino de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC",
+                "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila:Quiapo",
+                "San Juan Comelec", "Pasig Blvd. Ext.", "SM City Marikina", "EDSA Central Jeep Terminal",
+                "Gateway Mall", "SM City Fairview"
+            ));
+            trgtLocation.setItems(FXCollections.observableArrayList(
+                "Sto. Nino de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC",
+                "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila:Quiapo",
+                "San Juan Comelec", "Pasig Blvd. Ext.", "SM City Marikina", "EDSA Central Jeep Terminal",
+                "Gateway Mall", "SM City Fairview"
+            ));
+        }
+
         if (webView != null) {
             webEngine = webView.getEngine();
 
@@ -60,7 +71,6 @@ public class Controller implements Initializable {
             String localUrl = Paths.get("src/backend/map.html").toUri().toString();
             webEngine.load(localUrl);
 
-            // Log the current URL and any errors
             webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
                 if (newState == Worker.State.SUCCEEDED) {
                     System.out.println("Loaded: " + webEngine.getLocation());
@@ -75,7 +85,7 @@ public class Controller implements Initializable {
             System.out.println("webView is null in initialize");
         }
     }
-    
+
     // Method to set the location of Current Location from combobox
     public void getCurrentLocation(ActionEvent event){
         srcLocation = currLocation.getValue();
@@ -131,16 +141,11 @@ public class Controller implements Initializable {
     }
 
     public void switchToLandingPage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
-        stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void switchToMapPage(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MapPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
         root = loader.load();
+
+        // Log for debugging
+        System.out.println("Loaded LandingPage.fxml");
 
         Controller controller = loader.getController();
         controller.setGraphData(nodeMap, edges);
@@ -149,5 +154,28 @@ public class Controller implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        // Debugging
+        System.out.println("Switched to LandingPage scene");
     }
+
+    public void switchToMapPage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MapPage.fxml"));
+        root = loader.load();
+
+        // Log for debugging
+        System.out.println("Loaded MapPage.fxml");
+
+        Controller controller = loader.getController();
+        controller.setGraphData(nodeMap, edges);
+
+        stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+        // Debugging
+        System.out.println("Switched to MapPage scene");
+    }
+
 }
