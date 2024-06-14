@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/bg.png" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: FFFFFF;">
+         <children>
+            <Button id="homeB" layoutX="584.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: FFFFFF;" text="Home" textAlignment="CENTER">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+            <Button id="mapsB" layoutX="671.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: FFFFFF;" text="Maps" textAlignment="CENTER" textFill="#8080807a">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+            <Text layoutX="83.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeepney">
+               <font>
+                  <Font name="Bauhaus 93" size="17.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane id="selectionPanel" layoutX="441.0" layoutY="150.0" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <ChoiceBox id="currentLoc" layoutX="33.0" layoutY="24.0" prefHeight="40.0" prefWidth="257.0" style="-fx-background-color: FFFFFF; -fx-border-color: #808080; -fx-background-radius: 10;" />
+            <ChoiceBox id="destinationLoc" layoutX="33.0" layoutY="80.0" prefHeight="40.0" prefWidth="257.0" style="-fx-background-color: FFFFFF; -fx-border-color: #808080; -fx-background-radius: 10;" />
+            <Button layoutX="88.0" layoutY="136.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: #03045E;" text="Get Route" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Text fill="#03045e" layoutX="58.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel to" wrappingWidth="196.13670349121094">
+         <font>
+            <Font name="Franklin Gothic Heavy" size="48.0" />
+         </font>
+      </Text>
+      <Text fill="#03045e" layoutX="58.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Northern" wrappingWidth="202.8033905029297">
+         <font>
+            <Font name="Franklin Gothic Heavy" size="48.0" />
+         </font>
+      </Text>
+      <Text fill="#03045e" layoutX="58.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manila" wrappingWidth="155.47006225585938">
+         <font>
+            <Font name="Franklin Gothic Heavy" size="48.0" />
+         </font>
+      </Text>
+      <Text fill="GREY" layoutX="60.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Optimize travel costs and even">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="GREY" layoutX="60.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="travel time when hopping from city">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="GREY" layoutX="60.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to city via the iconic Jeepneys!">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="GREY" layoutX="441.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Where are you going today?">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

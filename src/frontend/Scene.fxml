@@ -4,11 +4,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane id="AnchorPane" prefHeight="630" prefWidth="800" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="frontend.Controller">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.Controller">
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>
     <children>
-        <WebView fx:id="webView" layoutX="-1.0" layoutY="7.0" prefHeight="630" prefWidth="800" />
+        <WebView fx:id="webView" layoutX="-1.0" prefHeight="500.0" />
     </children>
 </AnchorPane>
