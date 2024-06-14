@@ -73,7 +73,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Scene.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
             Parent root = loader.load();
 
             Controller controller = loader.getController();
