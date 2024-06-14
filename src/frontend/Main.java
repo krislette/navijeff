@@ -76,9 +76,6 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
             Parent root = loader.load();
 
-            Controller controller = loader.getController();
-            controller.setGraphData(nodeMap, edges);
-
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
             stage.setScene(scene);

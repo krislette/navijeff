@@ -17,10 +17,12 @@ import algorithm.AStar;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 public class Controller implements Initializable {
@@ -37,9 +39,16 @@ public class Controller implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
+    
+    @FXML
+    private ComboBox<String> currLocation;
+    @FXML
+    private ComboBox<String> trgtLocation;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        currLocation.setItems(FXCollections.observableArrayList ("Sto. Nino de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC", "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila:Quiapo", "San Juan Comelec", "Pasig Blvd. Ext.", "SM City Marikina", "EDSA Central Jeep Terminal", "Gateway Mall", "SM City Fairview"));
+        trgtLocation.setItems(FXCollections.observableArrayList ("Sto. Nino de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC", "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila:Quiapo", "San Juan Comelec", "Pasig Blvd. Ext.", "SM City Marikina", "EDSA Central Jeep Terminal", "Gateway Mall", "SM City Fairview"));
         // Still thinking of this method and other ways to optimize it 
         // Because it logs that webview is null
         if (webView != null) {
@@ -66,7 +75,17 @@ public class Controller implements Initializable {
             System.out.println("webView is null in initialize");
         }
     }
-
+    
+    // Method to set the location of Current Location from combobox
+    public void getCurrentLocation(ActionEvent event){
+        srcLocation = currLocation.getValue();
+    }
+    
+    // Method to set the location of Destination Location from combobox
+    public void getTargetLocation(ActionEvent event){
+        destLocation = trgtLocation.getValue();
+    }
+    
     // Method to set the nodeMap and edges from Main class
     public void setGraphData(Map<String, Node> nodeMap, List<Edge> edges) {
         this.nodeMap = nodeMap;
@@ -131,5 +150,4 @@ public class Controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
 }
