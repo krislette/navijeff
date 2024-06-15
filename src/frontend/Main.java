@@ -73,8 +73,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Scene1.fxml"));
-            Parent root = loader.load();       
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
+            Parent root = loader.load();
+
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
             stage.setScene(scene);

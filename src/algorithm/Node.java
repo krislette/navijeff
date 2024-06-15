@@ -46,4 +46,8 @@ public class Node {
         this.edges.add(edge);
     }
 
+    public Object getScene() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

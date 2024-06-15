@@ -16,6 +16,11 @@
             "longitude": 120.94772465912094 
         }, 
         {
+            "location": "Jeepney Terminal: VGC",
+            "latitude": 14.7110505110634, 
+            "longitude": 120.9929664187012
+        },
+        {
             "location": "Naval St. Navotas",
             "latitude": 14.673070194269735, 
             "longitude": 120.9352851717105
@@ -59,6 +64,11 @@
             "location": "SM City Fairview",
             "latitude": 14.732981753531336,
             "longitude": 121.05565966004717
+        },
+        {
+            "location": "Novaliches Jeepney Terminal",
+            "latitude": 14.721342333896834, 
+            "longitude": 121.03750995417427
         }
     ],
     "edges": [
@@ -231,6 +241,66 @@
             "source": "Naval St. Navotas",
             "destination": "Malabon City Square",
             "distance": 2.8
+        },
+        {
+            "source": "Novaliches Jeepney Terminal",
+            "destination": "SM City Fairview",
+            "distance": 3.8
+        }, 
+        {
+            "source": "SM City Fairview",
+            "destination": "Novaliches Jeepney Terminal",
+            "distance": 3.4
+        }, 
+        {
+            "source": "Novaliches Jeepney Terminal",
+            "destination": "Sto. Niño de Bagong Silang Parish",
+            "distance": 8.3
+        }, 
+        {
+            "source": "Sto. Niño de Bagong Silang Parish",
+            "destination": "Novaliches Jeepney Terminal",
+            "distance": 7.9
+        }, 
+        {
+            "source": "Novaliches Jeepney Terminal",
+            "destination": "Monumento",
+            "distance": 13.4
+        },
+        {
+            "source": "Monumento",
+            "destination": "Novaliches Jeepney Terminal",
+            "distance": 14.6
+        },
+        {
+            "source": "Novaliches Jeepney Terminal",
+            "destination": "Gateway Mall",
+            "distance": 14.0
+        }, 
+        {
+            "source": "Gateway Mall",
+            "destination": "Novaliches Jeepney Terminal",
+            "distance": 13.6
+        },
+        {
+            "source": "Novaliches Jeepney Terminal",
+            "destination": "Jeepney Terminal: VGC",
+            "distance": 5.4
+        }, 
+        {
+            "source": "Jeepney Terminal: VGC",
+            "destination": "Novaliches Jeepney Terminal",
+            "distance": 5.4
+        }, 
+        {
+            "source": "Jeepney Terminal: VGC",
+            "destination": "Monumento",
+            "distance": 8.6
+        }, 
+        {
+            "source": "Monumento",
+            "destination": "Jeepney Terminal: VGC",
+            "distance": 8.2
         }
     ]
 }

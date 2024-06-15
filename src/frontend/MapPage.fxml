@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.WebView?>
 
@@ -9,6 +10,7 @@
         <URL value="@style.css" />
     </stylesheets>
     <children>
-        <WebView fx:id="webView" layoutX="-1.0" prefHeight="500.0" />
+        <WebView fx:id="webView" prefHeight="500.0" prefWidth="800" />
+      <Button layoutX="96.0" layoutY="189.0" mnemonicParsing="false" onAction="#switchToLandingPage" text="return" />
     </children>
 </AnchorPane>
