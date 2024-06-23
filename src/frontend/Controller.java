@@ -177,5 +177,24 @@ public class Controller implements Initializable {
         // Debugging
         System.out.println("Switched to MapPage scene");
     }
+    
+    public void switchGetRoutePage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GetRoute.fxml"));
+        root = loader.load();
+
+        // Log for debugging
+        System.out.println("Loaded GetRoute.fxml");
+
+        Controller controller = loader.getController();
+        controller.setGraphData(nodeMap, edges);
+
+        stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+        // Debugging
+        System.out.println("Switched to GetRoute scene");
+    }
 
 }
