@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.Controller">
@@ -10,7 +16,50 @@
         <URL value="@style.css" />
     </stylesheets>
     <children>
-        <WebView fx:id="webView" prefHeight="500.0" />
-      <Button layoutX="96.0" layoutY="189.0" mnemonicParsing="false" onAction="#switchToLandingPage" text="return" />
+        <WebView fx:id="webView" layoutY="50.0" prefHeight="450.0" />
+      <Pane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: CDD5FF;">
+         <children>
+            <Button id="homeB" alignment="TOP_CENTER" layoutX="584.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchToLandingPage" style="-fx-background-color: CDD5FF;" text="Home" textAlignment="CENTER">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/home.jpeg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="mapsB" alignment="TOP_CENTER" layoutX="675.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchToMapPage" style="-fx-background-color: CDD5FF;" text="Maps" textAlignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/maps.jpeg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Text layoutX="75.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NaviJeff">
+               <font>
+                  <Font name="Bauhaus 93" size="17.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="34.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icon.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
     </children>
 </AnchorPane>

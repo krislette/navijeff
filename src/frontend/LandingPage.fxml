@@ -65,7 +65,7 @@
       </Pane>
       <Pane id="selectionPanel" layoutX="441.0" layoutY="150.0" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 10;">
          <children>
-            <Button layoutX="88.0" layoutY="136.0" mnemonicParsing="false" onAction="#switchToMapPage" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: #03045E; -fx-background-radius: 10;" text="Get Route" textFill="WHITE">
+            <Button layoutX="88.0" layoutY="136.0" mnemonicParsing="false" onAction="#switchGetRoutePage" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: #03045E; -fx-background-radius: 10;" text="Get Route" textFill="WHITE">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
