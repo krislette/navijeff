@@ -47,16 +47,20 @@ public class Controller implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        currLocation.setOnAction(event -> getCurrentLocation(event));
+        trgtLocation.setOnAction(event -> getTargetLocation(event));
+        
         if (currLocation != null && trgtLocation != null) {
             currLocation.setItems(FXCollections.observableArrayList(
-                "Sto. Nino de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC",
-                "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila:Quiapo",
+                "Sto. Niño de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC",
+                "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila: Quiapo",
                 "San Juan Comelec", "Pasig Blvd. Ext.", "SM City Marikina", "EDSA Central Jeep Terminal",
                 "Gateway Mall", "SM City Fairview"
             ));
             trgtLocation.setItems(FXCollections.observableArrayList(
-                "Sto. Nino de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC",
-                "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila:Quiapo",
+                "Sto. Niño de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC",
+                "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila: Quiapo",
                 "San Juan Comelec", "Pasig Blvd. Ext.", "SM City Marikina", "EDSA Central Jeep Terminal",
                 "Gateway Mall", "SM City Fairview"
             ));
@@ -65,18 +69,19 @@ public class Controller implements Initializable {
         if (webView != null) {
             webEngine = webView.getEngine();
 
-            System.setProperty("prism.forceGPU", "true");
-            System.setProperty("sun.java2d.opengl", "true");
-
+            // Load local URL
             String localUrl = Paths.get("src/backend/map.html").toUri().toString();
             webEngine.load(localUrl);
 
+            // Listener for when webEngine finishes loading
             webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
                 if (newState == Worker.State.SUCCEEDED) {
+                    // Successful load
                     System.out.println("Loaded: " + webEngine.getLocation());
                     JSObject window = (JSObject) webEngine.executeScript("window");
                     window.setMember("javaApp", this);
                 } else if (newState == Worker.State.FAILED) {
+                    // Failed to load
                     System.out.println("Failed to load: " + webEngine.getLocation());
                     webEngine.getLoadWorker().getException().printStackTrace();
                 }
@@ -85,27 +90,47 @@ public class Controller implements Initializable {
             System.out.println("webView is null in initialize");
         }
     }
-
+    
+    public WebView getWebView() {
+        return webView;
+    }
+    
+    public void setInitialLocations(String source, String destination) {
+        // Ensure currLocation and trgtLocation are initialized before setting values
+        if (currLocation != null && trgtLocation != null) {
+            currLocation.setValue(source);
+            trgtLocation.setValue(destination);
+        } else {
+            System.out.println("currLocation or trgtLocation is null.");
+        }
+    }
+        
     // Method to set the location of Current Location from combobox
     public void getCurrentLocation(ActionEvent event){
         srcLocation = currLocation.getValue();
+        setLocations(srcLocation, destLocation);
     }
     
     // Method to set the location of Destination Location from combobox
     public void getTargetLocation(ActionEvent event){
         destLocation = trgtLocation.getValue();
+        setLocations(srcLocation, destLocation);
     }
     
     // Method to set the nodeMap and edges from Main class
     public void setGraphData(Map<String, Node> nodeMap, List<Edge> edges) {
-        this.nodeMap = nodeMap;
-        this.edges = edges;
+        this.nodeMap = Main.getNodeMap();
+        this.edges = Main.getEdges();
     }
 
     // Method to set source and destination locations and draw path
     public void setLocations(String source, String destination) {
+             
         this.srcLocation = source;
         this.destLocation = destination;
+        System.out.println("Source Location: " + source);
+        System.out.println("Destination Location: " + destination);
+
         calculateAndDrawPath();
     }
 
@@ -113,13 +138,12 @@ public class Controller implements Initializable {
     private void calculateAndDrawPath() {
         Node sourceNode = nodeMap.get(srcLocation);
         Node destNode = nodeMap.get(destLocation);
-
+        
         if (sourceNode != null && destNode != null) {
             List<Node> path = AStar.findPath(sourceNode, destNode, edges);
-
+            
             // Print the path for debugging purposes
             path.forEach(System.out::println);
-
             // Prepare the path data for JavaScript
             JSONArray pathArray = new JSONArray();
             for (Node node : path) {
@@ -134,7 +158,11 @@ public class Controller implements Initializable {
             System.out.println("Path data: " + pathArray.toString());
 
             // Execute the drawPath function in JavaScript
-            webEngine.executeScript("drawPath('" + pathArray.toString() + "');");
+            if (webEngine != null) {
+                webEngine.executeScript("drawPath('" + pathArray.toString() + "');");
+            } else {
+                System.out.println("WebEngine is not initialized.");
+            }
         } else {
             System.out.println("Source or destination node not found.");
         }
@@ -154,7 +182,9 @@ public class Controller implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
+        
+        srcLocation = currLocation.getValue();
+        destLocation = trgtLocation.getValue();
         // Debugging
         System.out.println("Switched to LandingPage scene");
     }
@@ -178,23 +208,58 @@ public class Controller implements Initializable {
         System.out.println("Switched to MapPage scene");
     }
     
-    public void switchGetRoutePage(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GetRoute.fxml"));
-        root = loader.load();
+   public void callJavaScriptFunction(String source, String destination) {
+        if (webEngine != null) {
+            String script = String.format("setLocations('%s', '%s');", source, destination);
+            webEngine.executeScript(script);
+        } else {
+            System.out.println("WebEngine is not initialized.");
+            // Handle the case where webEngine is not initialized
+        }
+ }
 
-        // Log for debugging
-        System.out.println("Loaded GetRoute.fxml");
+public void switchGetRoutePage(ActionEvent event) throws IOException {
+    // Store current selected values
+    String currentSource = currLocation.getValue();
+    String currentDestination = trgtLocation.getValue();
 
-        Controller controller = loader.getController();
-        controller.setGraphData(nodeMap, edges);
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("GetRoute.fxml"));
+    root = loader.load();
 
-        stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    // Log for debugging
+    System.out.println("Loaded GetRoute.fxml");
 
-        // Debugging
-        System.out.println("Switched to GetRoute scene");
+    Controller controller = loader.getController();
+    controller.setGraphData(nodeMap, edges);
+
+    // Set stored values into GetRoute.fxml controller
+    controller.setInitialLocations(currentSource, currentDestination);
+
+    stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+
+    // Add listener to WebView load state
+    WebView webView = controller.getWebView(); // Ensure this method returns the WebView instance
+    if (webView != null) {
+        WebEngine webEngine = webView.getEngine();
+        webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
+            if (newState == Worker.State.SUCCEEDED) {
+                // Successfully loaded
+                System.out.println("WebView loaded: " + webEngine.getLocation());
+                controller.setLocations(currentSource, currentDestination);
+            } else if (newState == Worker.State.FAILED) {
+                // Failed to load
+                System.out.println("Failed to load WebView: " + webEngine.getLocation());
+                webEngine.getLoadWorker().getException().printStackTrace();
+            }
+        });
+    } else {
+        System.out.println("WebView is null.");
     }
 
+    // Debugging
+    System.out.println("Switched to GetRoute scene");
+}
 }

@@ -22,6 +22,13 @@ public class Main extends Application {
     private static Map<String, Node> nodeMap;
     private static List<Edge> edges;
 
+    public static Map<String, Node> getNodeMap() {
+        return nodeMap;
+    }
+
+    public static List<Edge> getEdges() {
+        return edges;
+    }
     // Create NODES and EDGES
     public static void main(String[] args) {
         List<Node> nodes = new ArrayList<>();

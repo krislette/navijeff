@@ -83,8 +83,8 @@
                   <Image url="@../images/target%20loc.jpeg" />
                </image>
             </ImageView>
-            <ComboBox fx:id="currLocation" editable="true" layoutX="33.0" layoutY="25.0" prefHeight="40.0" prefWidth="257.0" visibleRowCount="20" />
-            <ComboBox fx:id="trgtLocation" editable="true" layoutX="33.0" layoutY="80.0" prefHeight="40.0" prefWidth="257.0" visibleRowCount="20" />
+            <ComboBox fx:id="currLocation" editable="true" layoutX="33.0" layoutY="25.0" prefHeight="40.0" prefWidth="257.0" promptText="Please Select Starting Point" visibleRowCount="20" />
+            <ComboBox fx:id="trgtLocation" editable="true" layoutX="33.0" layoutY="80.0" prefHeight="40.0" prefWidth="257.0" promptText="Please Select Your Destination" visibleRowCount="20" />
          </children>
       </Pane>
       <Text fill="#03045e" layoutX="58.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel to" wrappingWidth="196.13670349121094">

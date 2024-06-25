@@ -1,6 +1,5 @@
 let map;
 let markers = [];
-let sourceMarker, destMarker;
 let pathPolyline;
 
 const METRO_MANILA_BOUNDS = {
@@ -45,22 +44,6 @@ function addMarker(location, title) {
     markers.push(marker);
 }
 
-function createMarker(location, title) {
-    return new google.maps.Marker({
-        position: location,
-        map: map,
-        title: title,
-        icon: getJeepneyIcon()
-    });
-}
-
-function setLocations() {
-    const source = document.getElementById("source").value;
-    const destination = document.getElementById("destination").value;
-    window.javaApp.setLocations(source, destination);
-}
-
-// Function to clear existing markers and polylines
 function clearExistingMapElements() {
     markers.forEach(marker => marker.setMap(null));
     markers = [];
@@ -70,7 +53,6 @@ function clearExistingMapElements() {
     }
 }
 
-// Function to add markers for the calculated path
 function addPathMarkers(pathData) {
     const pathPoints = JSON.parse(pathData);
     pathPoints.forEach(point => {
@@ -78,9 +60,8 @@ function addPathMarkers(pathData) {
     });
 }
 
-// Function to initialize the path polyline
 function initializePathPolyline() {
-    let path = new google.maps.MVCArray();
+    const path = new google.maps.MVCArray();
     pathPolyline = new google.maps.Polyline({
         map: map,
         strokeColor: "#FF0000",
@@ -91,17 +72,15 @@ function initializePathPolyline() {
     pathPolyline.setPath(path);
 }
 
-// Function to set map bounds based on path data
 function setMapBounds(pathData) {
     const bounds = new google.maps.LatLngBounds();
     const pathPoints = JSON.parse(pathData);
     pathPoints.forEach(point => {
-        bounds.extend(point);
+        bounds.extend({ lat: point.lat, lng: point.lng });
     });
     map.fitBounds(bounds);
 }
 
-// Function to process each segment of the path
 function processPathSegments(pathCoordinates, index, directionsService, path) {
     if (index >= pathCoordinates.length - 1) return;
 
@@ -122,11 +101,10 @@ function processPathSegments(pathCoordinates, index, directionsService, path) {
     });
 }
 
-// Function to handle the A* algorithm call
 function drawPath(pathData) {
     clearExistingMapElements();
     addPathMarkers(pathData);
-    
+
     const pathCoordinates = JSON.parse(pathData).map(point => ({ lat: point.lat, lng: point.lng }));
 
     initializePathPolyline();
@@ -144,3 +122,4 @@ document.addEventListener("DOMContentLoaded", () => {
     script.defer = true;
     document.head.appendChild(script);
 });
+
