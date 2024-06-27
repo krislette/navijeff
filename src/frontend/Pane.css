@@ -1,0 +1,25 @@
+#vboxContent .jeep-stop {
+    -fx-background-image: url("file:///Z:/Documents/NetBeansProjects/David_jeepney-navigation/src/images/Jeep_Ticket.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 220px 80px;
+    -fx-max-width: 224px;
+    -fx-max-height: 90px;
+    -fx-min-width: 224px;
+    -fx-min-height: 90px;
+}
+
+#vboxContent .source-destination {
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-text-alignment: center;
+    -fx-text-origin: top;
+}
+#vboxContent .jeep-fare {
+    -fx-font-size: 12px;
+}
+#vboxContent .edge-distance {
+    -fx-font-size: 12px;
+    -fx-text-alignment: center; 
+    -fx-text-origin: bottom;
+}

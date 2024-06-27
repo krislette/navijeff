@@ -1,29 +1,35 @@
 package frontend;
 
-import java.net.URL;
-import java.nio.file.Paths;
-import java.util.ResourceBundle;
 import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
-import netscape.javascript.JSObject;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import algorithm.Node;
-import algorithm.Edge;
-import algorithm.AStar;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import javafx.fxml.FXMLLoader;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+
+import java.net.URL;
+import java.nio.file.Paths;
+import java.util.ResourceBundle;
+import javafx.geometry.Pos;
+import netscape.javascript.JSObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import algorithm.Node;
+import algorithm.Edge;
+import algorithm.AStar;
 
 public class Controller implements Initializable {
 
@@ -42,11 +48,21 @@ public class Controller implements Initializable {
     
     @FXML
     private ComboBox<String> currLocation;
+    
     @FXML
     private ComboBox<String> trgtLocation;
     
+    @FXML
+    private VBox vboxContent;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        if (vboxContent != null) {
+            vboxContent.getStylesheets().add(getClass().getResource("/frontend/Pane.css").toExternalForm());
+        } else {
+            System.out.println("vboxContent is null during initialization");
+        }
         
         currLocation.setOnAction(event -> getCurrentLocation(event));
         trgtLocation.setOnAction(event -> getTargetLocation(event));
@@ -69,19 +85,15 @@ public class Controller implements Initializable {
         if (webView != null) {
             webEngine = webView.getEngine();
 
-            // Load local URL
             String localUrl = Paths.get("src/backend/map.html").toUri().toString();
             webEngine.load(localUrl);
 
-            // Listener for when webEngine finishes loading
             webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
                 if (newState == Worker.State.SUCCEEDED) {
-                    // Successful load
                     System.out.println("Loaded: " + webEngine.getLocation());
                     JSObject window = (JSObject) webEngine.executeScript("window");
                     window.setMember("javaApp", this);
                 } else if (newState == Worker.State.FAILED) {
-                    // Failed to load
                     System.out.println("Failed to load: " + webEngine.getLocation());
                     webEngine.getLoadWorker().getException().printStackTrace();
                 }
@@ -89,14 +101,15 @@ public class Controller implements Initializable {
         } else {
             System.out.println("webView is null in initialize");
         }
+        
     }
     
     public WebView getWebView() {
         return webView;
     }
     
+    // Method to ensure currLocation and trgtLocation are initialized before setting values
     public void setInitialLocations(String source, String destination) {
-        // Ensure currLocation and trgtLocation are initialized before setting values
         if (currLocation != null && trgtLocation != null) {
             currLocation.setValue(source);
             trgtLocation.setValue(destination);
@@ -138,54 +151,110 @@ public class Controller implements Initializable {
     private void calculateAndDrawPath() {
         Node sourceNode = nodeMap.get(srcLocation);
         Node destNode = nodeMap.get(destLocation);
-        
+
         if (sourceNode != null && destNode != null) {
             List<Node> path = AStar.findPath(sourceNode, destNode, edges);
-            
-            // Print the path for debugging purposes
             path.forEach(System.out::println);
+
+            // Clear the existing content in the VBox
+            vboxContent.getChildren().clear();
+
             // Prepare the path data for JavaScript
             JSONArray pathArray = new JSONArray();
-            for (Node node : path) {
+
+            for (int i = 0; i < path.size(); i++) {
+                Node node = path.get(i);
+                Node pastNode = null;
+
                 JSONObject point = new JSONObject();
                 point.put("loc", node.getLocation());
                 point.put("lat", node.getLatitude());
                 point.put("lng", node.getLongitude());
                 pathArray.put(point);
+
+                
+                // Create a new pane for each node
+                if (i > 0) {
+                    VBox jeepStop = new VBox();
+                    jeepStop.setSpacing(15);
+                    jeepStop.setAlignment(Pos.CENTER);
+                    
+                    Text sourceDestinationText = new Text();
+                    Text jeepFareText = new Text();
+                    Text edgeDistanceText = new Text();
+        
+                    pastNode = path.get(i - 1);
+                    sourceDestinationText.getStyleClass().add("source-destination");
+                    sourceDestinationText.setText(pastNode.getLocation() + " || " + node.getLocation());
+                    
+                    double fare = getFare(node);
+                    int roundedFare = (int) fare;
+                    jeepFareText.getStyleClass().add("jeep-fare");
+                    jeepFareText.setText("₱" + roundedFare);
+                    
+                    edgeDistanceText.getStyleClass().add("edge-distance");
+                    edgeDistanceText.setText("Distance: " + getDistanceToNextNode(node));
+                
+                    jeepStop.getStyleClass().add("jeep-stop");    
+                    jeepStop.getChildren().addAll(sourceDestinationText, jeepFareText, edgeDistanceText);
+                    vboxContent.getChildren().add(jeepStop);
+            }
             }
 
-            // Log the path data
             System.out.println("Path data: " + pathArray.toString());
 
-            // Execute the drawPath function in JavaScript
             if (webEngine != null) {
                 webEngine.executeScript("drawPath('" + pathArray.toString() + "');");
             } else {
                 System.out.println("WebEngine is not initialized.");
             }
+
         } else {
             System.out.println("Source or destination node not found.");
         }
+}
+
+    private double getFare(Node currentNode) {
+    for (Edge edge : edges) {
+        if (edge.getSource().equals(currentNode)) {
+            double distance = edge.getDistance();
+            double fare = ((distance - 4) * 1.8) + 13;
+            return fare;
+        }
+    }
+    return 0.0;
+}
+
+    
+    private double getDistanceToNextNode(Node currentNode) {
+        for (Edge edge : edges) {
+            if (edge.getSource().equals(currentNode)) {
+                return edge.getDistance();
+            }
+        }
+        return 0;
     }
 
     public void switchToLandingPage(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
         root = loader.load();
 
-        // Log for debugging
         System.out.println("Loaded LandingPage.fxml");
 
         Controller controller = loader.getController();
         controller.setGraphData(nodeMap, edges);
 
         stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
+        Image appIcon = new Image("file:src/images/icon.jpeg");
+        stage.getIcons().add(appIcon);
         scene = new Scene(root);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
         
         srcLocation = currLocation.getValue();
         destLocation = trgtLocation.getValue();
-        // Debugging
+        
         System.out.println("Switched to LandingPage scene");
     }
 
@@ -193,73 +262,72 @@ public class Controller implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MapPage.fxml"));
         root = loader.load();
 
-        // Log for debugging
         System.out.println("Loaded MapPage.fxml");
 
         Controller controller = loader.getController();
         controller.setGraphData(nodeMap, edges);
 
         stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
+        Image appIcon = new Image("file:src/images/icon.jpeg");
+        stage.getIcons().add(appIcon);
         scene = new Scene(root);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 
-        // Debugging
         System.out.println("Switched to MapPage scene");
     }
-    
-   public void callJavaScriptFunction(String source, String destination) {
+
+    public void callJavaScriptFunction(String source, String destination) {
         if (webEngine != null) {
             String script = String.format("setLocations('%s', '%s');", source, destination);
             webEngine.executeScript(script);
         } else {
             System.out.println("WebEngine is not initialized.");
-            // Handle the case where webEngine is not initialized
         }
- }
-
-public void switchGetRoutePage(ActionEvent event) throws IOException {
-    // Store current selected values
-    String currentSource = currLocation.getValue();
-    String currentDestination = trgtLocation.getValue();
-
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("GetRoute.fxml"));
-    root = loader.load();
-
-    // Log for debugging
-    System.out.println("Loaded GetRoute.fxml");
-
-    Controller controller = loader.getController();
-    controller.setGraphData(nodeMap, edges);
-
-    // Set stored values into GetRoute.fxml controller
-    controller.setInitialLocations(currentSource, currentDestination);
-
-    stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-    scene = new Scene(root);
-    stage.setScene(scene);
-    stage.show();
-
-    // Add listener to WebView load state
-    WebView webView = controller.getWebView(); // Ensure this method returns the WebView instance
-    if (webView != null) {
-        WebEngine webEngine = webView.getEngine();
-        webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
-            if (newState == Worker.State.SUCCEEDED) {
-                // Successfully loaded
-                System.out.println("WebView loaded: " + webEngine.getLocation());
-                controller.setLocations(currentSource, currentDestination);
-            } else if (newState == Worker.State.FAILED) {
-                // Failed to load
-                System.out.println("Failed to load WebView: " + webEngine.getLocation());
-                webEngine.getLoadWorker().getException().printStackTrace();
-            }
-        });
-    } else {
-        System.out.println("WebView is null.");
     }
 
-    // Debugging
-    System.out.println("Switched to GetRoute scene");
-}
+    public void switchGetRoutePage(ActionEvent event) throws IOException {
+        String currentSource = currLocation.getValue();
+        String currentDestination = trgtLocation.getValue();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GetRoute.fxml"));
+        root = loader.load();
+
+        System.out.println("Loaded GetRoute.fxml");
+
+        Controller controller = loader.getController();
+        controller.setGraphData(nodeMap, edges);
+
+        controller.setInitialLocations(currentSource, currentDestination);
+
+        stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        Image appIcon = new Image("file:src/images/icon.jpeg");
+        stage.getIcons().add(appIcon);
+        scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/frontend/Pane.css").toExternalForm());
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+
+        WebView webView = controller.getWebView();
+        if (webView != null) {
+            WebEngine webEngine = webView.getEngine();
+            webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
+                if (newState == Worker.State.SUCCEEDED) {
+
+                    System.out.println("WebView loaded: " + webEngine.getLocation());
+                    controller.setLocations(currentSource, currentDestination);
+                } else if (newState == Worker.State.FAILED) {
+
+                    System.out.println("Failed to load WebView: " + webEngine.getLocation());
+                    webEngine.getLoadWorker().getException().printStackTrace();
+                }
+            });
+        } else {
+            System.out.println("WebView is null.");
+        }
+
+        System.out.println("Switched to GetRoute scene");
+    }
 }
