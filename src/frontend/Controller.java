@@ -57,13 +57,6 @@ public class Controller implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        if (vboxContent != null) {
-            vboxContent.getStylesheets().add(getClass().getResource("/frontend/Pane.css").toExternalForm());
-        } else {
-            System.out.println("vboxContent is null during initialization");
-        }
-        
         currLocation.setOnAction(event -> getCurrentLocation(event));
         trgtLocation.setOnAction(event -> getTargetLocation(event));
         
@@ -101,7 +94,6 @@ public class Controller implements Initializable {
         } else {
             System.out.println("webView is null in initialize");
         }
-        
     }
     
     public WebView getWebView() {
@@ -138,7 +130,6 @@ public class Controller implements Initializable {
 
     // Method to set source and destination locations and draw path
     public void setLocations(String source, String destination) {
-             
         this.srcLocation = source;
         this.destLocation = destination;
         System.out.println("Source Location: " + source);
@@ -156,79 +147,82 @@ public class Controller implements Initializable {
             List<Node> path = AStar.findPath(sourceNode, destNode, edges);
             path.forEach(System.out::println);
 
-            // Clear the existing content in the VBox
-            vboxContent.getChildren().clear();
+            // Check if vboxContent is not null before accessing it
+            if (vboxContent != null) {
+                // Clear the existing content in the VBox
+                vboxContent.getChildren().clear();
 
-            // Prepare the path data for JavaScript
-            JSONArray pathArray = new JSONArray();
+                // Prepare the path data for JavaScript
+                JSONArray pathArray = new JSONArray();
 
-            for (int i = 0; i < path.size(); i++) {
-                Node node = path.get(i);
-                Node pastNode = null;
+                for (int i = 0; i < path.size(); i++) {
+                    Node node = path.get(i);
+                    Node pastNode = null;
 
-                JSONObject point = new JSONObject();
-                point.put("loc", node.getLocation());
-                point.put("lat", node.getLatitude());
-                point.put("lng", node.getLongitude());
-                pathArray.put(point);
+                    JSONObject point = new JSONObject();
+                    point.put("loc", node.getLocation());
+                    point.put("lat", node.getLatitude());
+                    point.put("lng", node.getLongitude());
+                    pathArray.put(point);
 
-                
-                // Create a new pane for each node
-                if (i > 0) {
-                    VBox jeepStop = new VBox();
-                    jeepStop.setSpacing(15);
-                    jeepStop.setAlignment(Pos.CENTER);
-                    
-                    Text sourceDestinationText = new Text();
-                    Text jeepFareText = new Text();
-                    Text edgeDistanceText = new Text();
-        
-                    pastNode = path.get(i - 1);
-                    sourceDestinationText.getStyleClass().add("source-destination");
-                    sourceDestinationText.setText(pastNode.getLocation() + " || " + node.getLocation());
-                    
-                    double fare = getFare(node);
-                    int roundedFare = (int) fare;
-                    jeepFareText.getStyleClass().add("jeep-fare");
-                    jeepFareText.setText("₱" + roundedFare);
-                    
-                    edgeDistanceText.getStyleClass().add("edge-distance");
-                    edgeDistanceText.setText("Distance: " + getDistanceToNextNode(node));
-                
-                    jeepStop.getStyleClass().add("jeep-stop");    
-                    jeepStop.getChildren().addAll(sourceDestinationText, jeepFareText, edgeDistanceText);
-                    vboxContent.getChildren().add(jeepStop);
-            }
-            }
+                    // Create a new pane for each node
+                    if (i > 0) {
+                        VBox jeepStop = new VBox();
+                        jeepStop.setSpacing(15);
+                        jeepStop.setAlignment(Pos.CENTER);
 
-            System.out.println("Path data: " + pathArray.toString());
+                        Text sourceDestinationText = new Text();
+                        Text jeepFareText = new Text();
+                        Text edgeDistanceText = new Text();
 
-            if (webEngine != null) {
-                webEngine.executeScript("drawPath('" + pathArray.toString() + "');");
+                        pastNode = path.get(i - 1);
+                        sourceDestinationText.getStyleClass().add("source-destination");
+                        sourceDestinationText.setText(pastNode.getLocation() + " || " + node.getLocation());
+
+                        double fare = getFare(pastNode, node);
+                        int roundedFare = (int) fare;
+                        jeepFareText.getStyleClass().add("jeep-fare");
+                        jeepFareText.setText("₱" + roundedFare);
+
+                        edgeDistanceText.getStyleClass().add("edge-distance");
+                        edgeDistanceText.setText("Distance: " + getDistanceToNextNode(pastNode, node));
+
+                        jeepStop.getStyleClass().add("jeep-stop");
+                        jeepStop.getChildren().addAll(sourceDestinationText, jeepFareText, edgeDistanceText);
+                        vboxContent.getChildren().add(jeepStop);
+                    }
+                }
+
+                System.out.println("Path data: " + pathArray.toString());
+
+                if (webEngine != null) {
+                    webEngine.executeScript("drawPath('" + pathArray.toString() + "');");
+                } else {
+                    System.out.println("WebEngine is not initialized.");
+                }
             } else {
-                System.out.println("WebEngine is not initialized.");
+                System.out.println("vboxContent is null.");
             }
 
         } else {
             System.out.println("Source or destination node not found.");
         }
-}
-
-    private double getFare(Node currentNode) {
-    for (Edge edge : edges) {
-        if (edge.getSource().equals(currentNode)) {
-            double distance = edge.getDistance();
-            double fare = ((distance - 4) * 1.8) + 13;
-            return fare;
-        }
     }
-    return 0.0;
-}
 
-    
-    private double getDistanceToNextNode(Node currentNode) {
+    private double getFare(Node sourceNode, Node destNode) {
         for (Edge edge : edges) {
-            if (edge.getSource().equals(currentNode)) {
+            if (edge.getSource().equals(sourceNode) && edge.getDestination().equals(destNode)) {
+                double distance = edge.getDistance();
+                double fare = ((distance - 4) * 1.8) + 13;
+                return fare;
+            }
+        }
+        return 0.0;
+    }
+
+    private double getDistanceToNextNode(Node sourceNode, Node destNode) {
+        for (Edge edge : edges) {
+            if (edge.getSource().equals(sourceNode) && edge.getDestination().equals(destNode)) {
                 return edge.getDistance();
             }
         }
@@ -305,7 +299,7 @@ public class Controller implements Initializable {
         Image appIcon = new Image("file:src/images/icon.jpeg");
         stage.getIcons().add(appIcon);
         scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/frontend/Pane.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/frontend/pane.css").toExternalForm());
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -330,4 +324,5 @@ public class Controller implements Initializable {
 
         System.out.println("Switched to GetRoute scene");
     }
+    
 }

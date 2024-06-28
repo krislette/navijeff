@@ -31,7 +31,7 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="sidePanel" layoutX="3.0" layoutY="102.0" prefHeight="394.0" prefWidth="269.0" style="-fx-background-color: #695a9e; -fx-background-radius: 0 0 28 28;">
+      <Pane fx:id="sidePanel1" layoutX="3.0" layoutY="102.0" prefHeight="394.0" prefWidth="269.0" style="-fx-background-color: #695a9e; -fx-background-radius: 0 0 28 28;">
          <children>
             <ComboBox fx:id="currLocation" editable="true" layoutX="15.0" layoutY="5.0" onAction="#getCurrentLocation" prefHeight="39.0" prefWidth="241.0" promptText="Please Select Starting Point" visibleRowCount="20" />
             <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="209.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
@@ -48,9 +48,6 @@
             <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" hvalue="1.0" layoutX="14.0" layoutY="91.0" prefHeight="288.0" prefWidth="241.0" style="-fx-border-color: ffffff; -fx-background-color: ffffff;" vbarPolicy="ALWAYS">
                <content>
                   <VBox fx:id="vboxContent" prefHeight="72.0" prefWidth="224.0" />
-                  <stylesheets>
-                    <URL value="@Pane.css" />
-                   </stylesheets>                  
                   <children>
                     <Text fx:id="sourceDesination" styleClass="source-destination"/>
                     <Text fx:id="jeepFare" styleClass="jeep-fare" />

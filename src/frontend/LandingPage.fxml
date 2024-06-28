@@ -93,7 +93,7 @@
             </ImageView>
             <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="7.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/target%20loc.jpeg" />
+                  <Image url="@../images/target.jpeg" />
                </image>
             </ImageView>
             <ComboBox fx:id="currLocation" editable="true" layoutX="33.0" layoutY="25.0" prefHeight="40.0" prefWidth="257.0" promptText="Please Select Starting Point" visibleRowCount="20" />
