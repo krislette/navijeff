@@ -299,7 +299,7 @@ public class Controller implements Initializable {
         Image appIcon = new Image("file:src/images/icon.jpeg");
         stage.getIcons().add(appIcon);
         scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/frontend/pane.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/frontend/style.css").toExternalForm());
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
