@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import algorithm.Edge;
@@ -70,7 +71,6 @@ public class Main extends Application {
                 }
             }
             
-            // Launch the JavaFX application
             launch(args);
         } catch (Exception e) {
             e.printStackTrace();
@@ -88,6 +88,9 @@ public class Main extends Application {
 
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            Image appIcon = new Image("file:src/images/icon.jpeg");
+            stage.getIcons().add(appIcon);
+            stage.setResizable(false); 
             stage.setScene(scene);
             stage.setTitle("NaviJeff");
             stage.show();
