@@ -15,6 +15,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 
 import java.net.URL;
 import java.nio.file.Paths;
@@ -55,12 +57,17 @@ public class Controller implements Initializable {
     @FXML
     private VBox vboxContent;
     
+    @FXML
+    private ScrollPane scrollPane;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        currLocation.setOnAction(event -> getCurrentLocation(event));
-        trgtLocation.setOnAction(event -> getTargetLocation(event));
-        
+               
         if (currLocation != null && trgtLocation != null) {
+            
+            currLocation.setOnAction(event -> getCurrentLocation(event));
+            trgtLocation.setOnAction(event -> getTargetLocation(event));
+            
             currLocation.setItems(FXCollections.observableArrayList(
                 "Sto. Niño de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC",
                 "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila: Quiapo",
@@ -80,7 +87,7 @@ public class Controller implements Initializable {
 
             String localUrl = Paths.get("src/backend/map.html").toUri().toString();
             webEngine.load(localUrl);
-
+                
             webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
                 if (newState == Worker.State.SUCCEEDED) {
                     System.out.println("Loaded: " + webEngine.getLocation());
@@ -93,6 +100,11 @@ public class Controller implements Initializable {
             });
         } else {
             System.out.println("webView is null in initialize");
+        }
+        
+        if (scrollPane != null) {
+            scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+            scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         }
     }
     
@@ -149,7 +161,6 @@ public class Controller implements Initializable {
 
             // Check if vboxContent is not null before accessing it
             if (vboxContent != null) {
-                // Clear the existing content in the VBox
                 vboxContent.getChildren().clear();
 
                 // Prepare the path data for JavaScript
@@ -168,12 +179,12 @@ public class Controller implements Initializable {
                     // Create a new pane for each node
                     if (i > 0) {
                         VBox jeepStop = new VBox();
-                        jeepStop.setSpacing(15);
+                        jeepStop.setSpacing(10);
                         jeepStop.setAlignment(Pos.CENTER);
 
-                        Text sourceDestinationText = new Text();
-                        Text jeepFareText = new Text();
-                        Text edgeDistanceText = new Text();
+                        Label sourceDestinationText = new Label();
+                        Label jeepFareText = new Label();
+                        Label edgeDistanceText = new Label();
 
                         pastNode = path.get(i - 1);
                         sourceDestinationText.getStyleClass().add("source-destination");
@@ -213,8 +224,15 @@ public class Controller implements Initializable {
         for (Edge edge : edges) {
             if (edge.getSource().equals(sourceNode) && edge.getDestination().equals(destNode)) {
                 double distance = edge.getDistance();
+                if (edge.getDistance() > 4)
+                {
                 double fare = ((distance - 4) * 1.8) + 13;
                 return fare;
+                } else{
+                    double fare = 13;
+                    return fare;
+                }
+                
             }
         }
         return 0.0;
@@ -237,7 +255,6 @@ public class Controller implements Initializable {
 
         Controller controller = loader.getController();
         controller.setGraphData(nodeMap, edges);
-
         stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
         Image appIcon = new Image("file:src/images/icon.jpeg");
         stage.getIcons().add(appIcon);
@@ -245,10 +262,7 @@ public class Controller implements Initializable {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
-        
-        srcLocation = currLocation.getValue();
-        destLocation = trgtLocation.getValue();
-        
+
         System.out.println("Switched to LandingPage scene");
     }
 

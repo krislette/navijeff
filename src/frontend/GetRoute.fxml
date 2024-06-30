@@ -49,9 +49,9 @@
                <content>
                   <VBox fx:id="vboxContent" prefHeight="72.0" prefWidth="224.0" />
                   <children>
-                    <Text fx:id="sourceDesination" styleClass="source-destination"/>
+                    <Text fx:id="sourceDesination" styleClass="source-destination" />
                     <Text fx:id="jeepFare" styleClass="jeep-fare" />
-                    <Text fx:id="edgeDistance" styleClass="edge-distance"/>
+                    <Text fx:id="edgeDistance" styleClass="edge-distance" />
                 </children>
                </content>
             </ScrollPane>
