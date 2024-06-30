@@ -1,7 +1,7 @@
 {
     "nodes": [
         {
-            "location": "Sto. Niño de Bagong Silang Parish",
+            "location": "Phase 1 Church",
             "latitude": 14.775417380181809, 
             "longitude": 121.04485533985091
         }, 
@@ -11,12 +11,12 @@
             "longitude": 120.98250666468125
         }, 
         {
-            "location": "Polo Public Market",
+            "location": "Polo Market",
             "latitude": 14.708682080878102, 
             "longitude": 120.94772465912094 
         }, 
         {
-            "location": "Jeepney Terminal: VGC",
+            "location": "VGC Terminal",
             "latitude": 14.7110505110634, 
             "longitude": 120.9929664187012
         },
@@ -26,12 +26,12 @@
             "longitude": 120.9352851717105
         }, 
         {
-            "location": "Malabon City Square",
+            "location": "Fisher Malabon",
             "latitude": 14.657597305063863, 
             "longitude": 120.96127728709507
         }, 
         {
-            "location": "Manila: Quiapo",
+            "location": "Quiapo",
             "latitude": 14.598485051480875, 
             "longitude": 120.98398217769233
         }, 
@@ -46,12 +46,12 @@
             "longitude": 121.07767751198017
         }, 
         {
-            "location": "SM City Marikina",
+            "location": "SM Marikina",
             "latitude": 14.625779958779043, 
             "longitude": 121.0835009311727
         }, 
         {
-            "location": "EDSA Central Jeep Terminal",
+            "location": "EDSA Terminal",
             "latitude": 14.580315380815517, 
             "longitude": 121.05456526544948
         }, 
@@ -61,44 +61,44 @@
             "longitude": 121.05566698624321
         }, 
         {
-            "location": "SM City Fairview",
+            "location": "SM Fairview",
             "latitude": 14.732981753531336,
             "longitude": 121.05565966004717
         },
         {
-            "location": "Novaliches Jeepney Terminal",
+            "location": "Novaliches",
             "latitude": 14.721342333896834, 
             "longitude": 121.03750995417427
         }
     ],
     "edges": [
         {
-            "source": "Sto. Niño de Bagong Silang Parish",
-            "destination": "SM City Fairview",
+            "source": "Phase 1 Church",
+            "destination": "SM Fairview",
             "distance": 7.0
         }, 
         {
-            "source": "SM City Fairview",
-            "destination": "Sto. Niño de Bagong Silang Parish",
+            "source": "SM Fairview",
+            "destination": "Phase 1 Church",
             "distance": 7.5
         }, 
         {
-            "source": "SM City Fairview",
+            "source": "SM Fairview",
             "destination": "Gateway Mall",
             "distance": 16.1
         }, 
         {
             "source": "Gateway Mall",
-            "destination": "SM City Fairview",
+            "destination": "SM Fairview",
             "distance": 18.1
         }, 
         {
             "source": "Gateway Mall",
-            "destination": "SM City Marikina",
+            "destination": "SM Marikina",
             "distance": 6.1
         }, 
         {
-            "source": "SM City Marikina",
+            "source": "SM Marikina",
             "destination": "Gateway Mall",
             "distance": 6.6
         }, 
@@ -114,101 +114,101 @@
         }, 
         {
             "source": "Gateway Mall",
-            "destination": "Manila: Quiapo",
+            "destination": "Quiapo",
             "distance": 8.2
         }, 
         {
-            "source": "Manila: Quiapo",
+            "source": "Quiapo",
             "destination": "Gateway Mall",
             "distance": 8.0
         }, 
         {
-            "source": "SM City Marikina",
+            "source": "SM Marikina",
             "destination": "Pasig Blvd. Ext.",
             "distance": 9.5
         }, 
         {
             "source": "Pasig Blvd. Ext.",
-            "destination": "SM City Marikina",
+            "destination": "SM Marikina",
             "distance": 10.6
         }, 
         {
             "source": "Pasig Blvd. Ext.",
-            "destination": "EDSA Central Jeep Terminal",
+            "destination": "EDSA Terminal",
             "distance": 4.9
         }, 
         {
-            "source": "EDSA Central Jeep Terminal",
+            "source": "EDSA Terminal",
             "destination": "Pasig Blvd. Ext.",
             "distance": 3.2
         }, 
         {
-            "source": "EDSA Central Jeep Terminal",
+            "source": "EDSA Terminal",
             "destination": "San Juan Comelec",
             "distance": 5.4
         }, 
         {
             "source": "San Juan Comelec",
-            "destination": "EDSA Central Jeep Terminal",
+            "destination": "EDSA Terminal",
             "distance": 6.1
         }, 
         {
             "source": "San Juan Comelec",
-            "destination": "Manila: Quiapo",
+            "destination": "Quiapo",
             "distance": 5.0
         }, 
         {
-            "source": "Manila: Quiapo",
+            "source": "Quiapo",
             "destination": "San Juan Comelec",
             "distance": 5.9
         }, 
         {
-            "source": "Manila: Quiapo",
+            "source": "Quiapo",
             "destination": "Monumento",
             "distance": 7.7
         }, 
         {
             "source": "Monumento",
-            "destination": "Manila: Quiapo",
+            "destination": "Quiapo",
             "distance": 8.1
         }, 
         {
-            "source": "Manila: Quiapo",
-            "destination": "Malabon City Square",
+            "source": "Quiapo",
+            "destination": "Fisher Malabon",
             "distance": 9.3
         }, 
         {
-            "source": "Malabon City Square",
-            "destination": "Manila: Quiapo",
+            "source": "Fisher Malabon",
+            "destination": "Quiapo",
             "distance": 10.8
         }, 
         {
-            "source": "Manila: Quiapo",
+            "source": "Quiapo",
             "destination": "Naval St. Navotas",
             "distance": 10.6
         }, 
         {
             "source": "Naval St. Navotas",
-            "destination": "Manila: Quiapo",
+            "destination": "Quiapo",
             "distance": 12.3
         }, 
         {
             "source": "Monumento",
-            "destination": "Polo Public Market",
+            "destination": "Polo Market",
             "distance": 8.0
         }, 
         {
-            "source": "Polo Public Market",
+            "source": "Polo Market",
             "destination": "Monumento",
             "distance": 8.0
         }, 
         {
             "source": "Monumento",
-            "destination": "Malabon City Square",
+            "destination": "Fisher Malabon",
             "distance": 2.5
         }, 
         {
-            "source": "Malabon City Square",
+            "source": "Fisher Malabon",
             "destination": "Monumento",
             "distance": 4.1
         }, 
@@ -223,83 +223,83 @@
             "distance": 5.0
         }, 
         {
-            "source": "Polo Public Market",
-            "destination": "Malabon City Square",
+            "source": "Polo Market",
+            "destination": "Fisher Malabon",
             "distance": 7.1
         }, 
         {
-            "source": "Malabon City Square",
-            "destination": "Polo Public Market",
+            "source": "Fisher Malabon",
+            "destination": "Polo Market",
             "distance": 7.9
         }, 
         {
-            "source": "Malabon City Square",
+            "source": "Fisher Malabon",
             "destination": "Naval St. Navotas",
             "distance": 2.6
         }, 
         {
             "source": "Naval St. Navotas",
-            "destination": "Malabon City Square",
+            "destination": "Fisher Malabon",
             "distance": 2.8
         },
         {
-            "source": "Novaliches Jeepney Terminal",
-            "destination": "SM City Fairview",
+            "source": "Novaliches",
+            "destination": "SM Fairview",
             "distance": 3.8
         }, 
         {
-            "source": "SM City Fairview",
-            "destination": "Novaliches Jeepney Terminal",
+            "source": "SM Fairview",
+            "destination": "Novaliches",
             "distance": 3.4
         }, 
         {
-            "source": "Novaliches Jeepney Terminal",
-            "destination": "Sto. Niño de Bagong Silang Parish",
+            "source": "Novaliches",
+            "destination": "Phase 1 Church",
             "distance": 8.3
         }, 
         {
-            "source": "Sto. Niño de Bagong Silang Parish",
-            "destination": "Novaliches Jeepney Terminal",
+            "source": "Phase 1 Church",
+            "destination": "Novaliches",
             "distance": 7.9
         }, 
         {
-            "source": "Novaliches Jeepney Terminal",
+            "source": "Novaliches",
             "destination": "Monumento",
             "distance": 13.4
         },
         {
             "source": "Monumento",
-            "destination": "Novaliches Jeepney Terminal",
+            "destination": "Novaliches",
             "distance": 14.6
         },
         {
-            "source": "Novaliches Jeepney Terminal",
+            "source": "Novaliches",
             "destination": "Gateway Mall",
             "distance": 14.0
         }, 
         {
             "source": "Gateway Mall",
-            "destination": "Novaliches Jeepney Terminal",
+            "destination": "Novaliches",
             "distance": 13.6
         },
         {
-            "source": "Novaliches Jeepney Terminal",
-            "destination": "Jeepney Terminal: VGC",
+            "source": "Novaliches",
+            "destination": "VGC Terminal",
             "distance": 5.4
         }, 
         {
-            "source": "Jeepney Terminal: VGC",
-            "destination": "Novaliches Jeepney Terminal",
+            "source": "VGC Terminal",
+            "destination": "Novaliches",
             "distance": 5.4
         }, 
         {
-            "source": "Jeepney Terminal: VGC",
+            "source": "VGC Terminal",
             "destination": "Monumento",
             "distance": 8.6
         }, 
         {
             "source": "Monumento",
-            "destination": "Jeepney Terminal: VGC",
+            "destination": "VGC Terminal",
             "distance": 8.2
         }
     ]

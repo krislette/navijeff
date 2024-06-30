@@ -13,7 +13,11 @@ async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
 
     map = new Map(document.getElementById("map"), {
-        center: { lat: 14.653843959448553, lng: 121.0332868139867 }, // Set center to TriNoma
+        // Set center to TriNoma
+        center: { 
+            lat: 14.653843959448553, 
+            lng: 121.0332868139867 
+        },
         restriction: {
             latLngBounds: METRO_MANILA_BOUNDS,
             strictBounds: false
@@ -29,7 +33,7 @@ async function initMap() {
 
 function getJeepneyIcon() {
     return {
-        url: '../images/jeepney-pin.png',
+        url: "../images/jeepney-pin.png",
         scaledSize: new google.maps.Size(23.5, 35)
     };
 }
@@ -122,4 +126,3 @@ document.addEventListener("DOMContentLoaded", () => {
     script.defer = true;
     document.head.appendChild(script);
 });
-

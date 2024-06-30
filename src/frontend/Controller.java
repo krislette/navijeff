@@ -69,16 +69,16 @@ public class Controller implements Initializable {
             trgtLocation.setOnAction(event -> getTargetLocation(event));
             
             currLocation.setItems(FXCollections.observableArrayList(
-                "Sto. Niño de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC",
-                "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila: Quiapo",
-                "San Juan Comelec", "Pasig Blvd. Ext.", "SM City Marikina", "EDSA Central Jeep Terminal",
-                "Gateway Mall", "SM City Fairview"
+                "Phase 1 Church", "Novaliches", "VGC Terminal",
+                "Monumento", "Polo Market", "Naval St. Navotas", "Fisher Malabon", "Quiapo",
+                "San Juan Comelec", "Pasig Blvd. Ext.", "SM Marikina", "EDSA Terminal",
+                "Gateway Mall", "SM Fairview"
             ));
             trgtLocation.setItems(FXCollections.observableArrayList(
-                "Sto. Niño de Bagong Silang Parish", "Novaliches Jeepney Terminal", "Jeepney Terminal: VGC",
-                "Monumento", "Polo Public Market", "Naval St. Navotas", "Malabon City Square", "Manila: Quiapo",
-                "San Juan Comelec", "Pasig Blvd. Ext.", "SM City Marikina", "EDSA Central Jeep Terminal",
-                "Gateway Mall", "SM City Fairview"
+                "Phase 1 Church", "Novaliches", "VGC Terminal",
+                "Monumento", "Polo Market", "Naval St. Navotas", "Fisher Malabon", "Quiapo",
+                "San Juan Comelec", "Pasig Blvd. Ext.", "SM Marikina", "EDSA Terminal",
+                "Gateway Mall", "SM Fairview"
             ));
         }
 
