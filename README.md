@@ -158,7 +158,7 @@ To run the program, right-click the project name on your NetBeans IDE and click 
 
 We would like to thank the following contributors for their support and contributions to this project:
 
-- [Acelle](https://github.com/krislette) for creating the routing paths, json data, map page backend, drawing markers, fetching the API key, and finishing touches.
+- [Acelle](https://github.com/krislette) for creating the routing paths using Directions API, JSON data, map page backend, drawing markers, fetching the API key, and finishing touches.
 
 - [David](https://github.com/perse-v) for creating the algorithm, javascript-java interaction, drawing markers and paths, fixing program logic, and finalizing the map.
 
