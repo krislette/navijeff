@@ -3,22 +3,22 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/your_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/krislette/jeepney-navigation">
+    <img src="src/images/icon.jpeg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">NaviJeff</h3>
   <p align="center">
     Your Commuting Buddy
     <br />
-    <a href="https://github.com/your_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/krislette/jeepney-navigation"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/your_username/repo_name">View Demo</a>
+    <a href="https://github.com/krislette/jeepney-navigation">View Demo</a>
     ·
-    <a href="https://github.com/your_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/krislette/jeepney-navigation/issues">Report Bug</a>
     ·
-    <a href="https://github.com/your_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/krislette/jeepney-navigation/issues">Request Feature</a>
   </p>
 </div>
 
@@ -153,7 +153,7 @@ cd path/to/desired/directory
 
 4. Clone the repository.
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
+git clone https://github.com/krislette/YOUR_REPOSITORY_NAME.git
 ```
 
 ### [1.2] Cloning the repository using NetBeans
@@ -163,7 +163,7 @@ git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 
 3. On the `Repository URL`, enter the url of your forked repository.
 ```bash
-https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
+https://github.com/krislette/YOUR_REPOSITORY_NAME.git
 ```
 
 4. Click `Next >` and tick the checkbox `main` that will apear.
