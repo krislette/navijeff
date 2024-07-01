@@ -7,7 +7,7 @@
     <img src="src/images/icon.jpeg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">NaviJeff</h3>
+  <h1 align="center">NaviJeff</h1>
   <p align="center">
     Your Commuting Buddy
     <br />
