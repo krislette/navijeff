@@ -24,7 +24,6 @@ async function initMap() {
         },
         zoom: 12,
         mapTypeId: "roadmap",
-        disableDefaultUI: true,
         zoomControl: true,
         streetViewControl: false,
         mapId: "DEMO_MAP_ID"
@@ -116,6 +115,15 @@ function drawPath(pathData) {
 
     const directionsService = new google.maps.DirectionsService();
     processPathSegments(pathCoordinates, 0, directionsService, pathPolyline.getPath());
+}
+
+function setStationPins(geopositions) {
+    const nodes = geopositions.nodes;
+
+    // Add nodes as markers
+    nodes.forEach(node => {
+        addMarker({ lat: node.latitude, lng: node.longitude }, node.location);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

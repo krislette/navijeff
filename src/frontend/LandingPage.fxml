@@ -29,7 +29,7 @@
       </ImageView>
       <Pane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #695a9e;" AnchorPane.topAnchor="0.0">
          <children>
-            <Button id="mapsB" alignment="TOP_CENTER" layoutX="700.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToMapPage" style="-fx-background-color: #ebebeb;" text="Maps" textAlignment="CENTER">
+            <Button id="mapsB" alignment="TOP_CENTER" layoutX="700.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToMapPage" style="-fx-background-color: FFFFFF;" text="Maps" textAlignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -53,10 +53,10 @@
                   <Image url="@../images/icon.jpeg" />
                </image>
                <effect>
-                  <ColorAdjust brightness="-0.29" contrast="1.0" hue="1.0" saturation="-0.88" />
+                  <ColorAdjust />
                </effect>
             </ImageView>
-            <Button id="homeB" alignment="TOP_CENTER" layoutX="600.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToLandingPage" prefHeight="28.0" prefWidth="69.0" style="-fx-background-color: #ebebeb;" text="Home" textAlignment="CENTER">
+            <Button id="homeB" alignment="TOP_CENTER" layoutX="600.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToLandingPage" prefHeight="28.0" prefWidth="69.0" style="-fx-background-color: FFFFFF;" text="Home" textAlignment="CENTER">
                <font>
                   <Font name="Lucida Console" size="12.0" />
                </font>

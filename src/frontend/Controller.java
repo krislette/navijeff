@@ -14,11 +14,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 
 import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import javafx.geometry.Pos;
@@ -59,7 +59,7 @@ public class Controller implements Initializable {
     
     @FXML
     private ScrollPane scrollPane;
-    
+     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
                
@@ -93,6 +93,14 @@ public class Controller implements Initializable {
                     System.out.println("Loaded: " + webEngine.getLocation());
                     JSObject window = (JSObject) webEngine.executeScript("window");
                     window.setMember("javaApp", this);
+                    
+                    // Load geopositions JSON and pass to JavaScript
+                    try {
+                        String jsonContent = new String(Files.readAllBytes(Paths.get("src/backend/geopositions.json")));
+                        webEngine.executeScript("window.setStationPins(" + jsonContent + ");");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 } else if (newState == Worker.State.FAILED) {
                     System.out.println("Failed to load: " + webEngine.getLocation());
                     webEngine.getLoadWorker().getException().printStackTrace();
@@ -196,7 +204,7 @@ public class Controller implements Initializable {
                         jeepFareText.setText("₱" + roundedFare);
 
                         edgeDistanceText.getStyleClass().add("edge-distance");
-                        edgeDistanceText.setText("Distance: " + getDistanceToNextNode(pastNode, node));
+                        edgeDistanceText.setText("Distance: " + getDistanceToNextNode(pastNode, node) + " km");
 
                         jeepStop.getStyleClass().add("jeep-stop");
                         jeepStop.getChildren().addAll(sourceDestinationText, jeepFareText, edgeDistanceText);

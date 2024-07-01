@@ -105,7 +105,7 @@
                   <Image url="@../images/icon.jpeg" />
                </image>
                <effect>
-                  <ColorAdjust brightness="-0.29" contrast="1.0" hue="1.0" saturation="-0.88" />
+                  <ColorAdjust />
                </effect>
             </ImageView>
          </children>

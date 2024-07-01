@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,9 +18,9 @@
     </stylesheets>
     <children>
         <WebView fx:id="webView" layoutY="50.0" prefHeight="450.0" />
-      <Pane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: CDD5FF;">
+      <Pane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #695a9e;">
          <children>
-            <Button id="homeB" alignment="TOP_CENTER" layoutX="584.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchToLandingPage" style="-fx-background-color: CDD5FF;" text="Home" textAlignment="CENTER">
+            <Button id="homeB" alignment="TOP_CENTER" layoutX="600.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToLandingPage" style="-fx-background-color: FFFFFF;" text="Home" textAlignment="CENTER">
                <font>
                   <Font name="Lucida Console" size="12.0" />
                </font>
@@ -34,7 +35,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="mapsB" alignment="TOP_CENTER" layoutX="675.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchToMapPage" style="-fx-background-color: CDD5FF;" text="Maps" textAlignment="CENTER">
+            <Button id="mapsB" alignment="TOP_CENTER" layoutX="700.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToMapPage" style="-fx-background-color: FFFFFF;" text="Maps" textAlignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -49,15 +50,18 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Text layoutX="75.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NaviJeff">
+            <Text fill="#cdd5ff" layoutX="75.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NaviJeff">
                <font>
                   <Font name="Bauhaus 93" size="17.0" />
                </font>
             </Text>
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="34.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="58.0" layoutX="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/icon.jpeg" />
                </image>
+               <effect>
+                  <ColorAdjust />
+               </effect>
             </ImageView>
          </children>
       </Pane>
