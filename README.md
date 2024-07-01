@@ -63,7 +63,8 @@ NaviJeff uses a number of technologies to work properly:
 ## Installation
 
 ### Prerequisites
-- Ensure you have Git installed on your local machine. If not, download and install 
+- Ensure you have Git installed on your local machine. If not, download and install.
+- Ensure you have NetBeans IDE on your local machine. If not, download and install.
 
 ### Cloning the repository using cmd
 1. Fork this repository
@@ -162,11 +163,11 @@ We would like to thank the following contributors for their support and contribu
 
 - [David](https://github.com/perse-v) for creating the algorithm, javascript-java interaction, drawing markers and paths, fixing program logic, and finalizing the map.
 
-- [John Lloyd](https://github.com/JLS0110) for creating the wireframes, landing page UI and UX, and collating frontend resources from other frontend developers.
+- [John Lloyd](https://github.com/JLS0110) for creating the wireframes, [landing page](#Landing-Page) UI, and collating frontend resources from other frontend developers.
 
-- [Sophia](https://github.com/sophiarya) for creating the initial wireframes that were adapted to the application, router page UI and UX, and map page UI and UX.
+- [Sophia](https://github.com/sophiarya) for creating the initial wireframes that were adapted to the application, [router page](#Routing-Page) UI, and [map page](#Map-Page) UI.
 
-- [Rijan]() for creating the landing page UI and UX, and adding ideas for the application flow.
+- [Rijan]() for creating the [landing page](#Landing-Page) UI, and adding ideas for the application flow.
 
 ## License
 
