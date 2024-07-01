@@ -66,7 +66,7 @@ NaviJeff uses a number of technologies to work properly:
 - Ensure you have Git installed on your local machine. If not, download and install.
 - Ensure you have NetBeans IDE on your local machine. If not, download and install.
 
-### Cloning the repository using cmd
+### [1.1] Cloning the repository using cmd
 1. Fork this repository
 
 2. Open your terminal by typing `cmd` on your search bar.
@@ -81,7 +81,7 @@ cd path/to/desired/directory
 git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 ```
 
-### Cloning the repository using NetBeans
+### [1.2] Cloning the repository using NetBeans
 1. Open NetBeans IDE.
 
 2. Go to `Team` > `Remote` > `Clone`.
@@ -95,7 +95,7 @@ https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 
 5. Click `Finish`.
 
-### Opening the project
+### [2] Opening the project
 
 - If you used the `cmd` to clone your forked repository, open NetBeans and click `Open Project`. From there, find the directory of your forked repository and open it.
 
@@ -104,7 +104,7 @@ https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 > After opening the project, you should see all the files listed on 
 > the [Folder Structure](#Folder-Structure), but without the `config.js` file.
 
-### Configuring API key
+### [3] Configuring API key
 
 1. Create a `config.js` file under the `backend` folder.
 
@@ -113,7 +113,7 @@ https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 const GOOGLE_MAPS_API_KEY = "YOUR_API_KEY";
 ```
 
-### JavaFX Integration
+### [4] JavaFX Integration
 
 To run the application, you should have JavaFX installed within your system. To know more about JavaFX installation, see this [video](https://www.youtube.com/watch?v=Iun8wEtn4Zs&t=1s).
 
@@ -127,7 +127,7 @@ To run the application, you should have JavaFX installed within your system. To 
 
 5. Before clicking `OK`, click the `Java Platform` dropdown on top, and select the `JDK FX` that you have installed by following the video. After selecting the correct platform, you can now click `OK` to finalize the changes.
 
-### JSON Jar Integration
+### [5] JSON Jar Integration
 
 1. Go to your project, right-click and click `Properties`.
 
@@ -137,7 +137,7 @@ To run the application, you should have JavaFX installed within your system. To 
 
 4. Click the jar file and click `Open`. You should now see the `json-20210307.jar` file under your `Classpath`, and then click `OK`.
 
-### Scene Builder Integration (Optional)
+### [6] Scene Builder Integration (Optional)
 
 If you want to modify the .fxml files (UI), you should have a [Scene Builder](https://gluonhq.com/products/scene-builder/) installed.
 
