@@ -1,12 +1,78 @@
-# NaviJeff
+<a id="readme-top"></a>
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/your_username/repo_name">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">NaviJeff</h3>
+  <p align="center">
+    Your Commuting Buddy
+    <br />
+    <a href="https://github.com/your_username/repo_name"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/your_username/repo_name">View Demo</a>
+    ·
+    <a href="https://github.com/your_username/repo_name/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/your_username/repo_name/issues">Request Feature</a>
+  </p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#technologies-used">Technologies Used</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#application-snapshots">Application Snapshots</a>
+    </li>
+    <li>
+      <a href="#folder-structure">Folder Structure</a>
+    </li>
+    <li>
+      <a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#cloning-the-repository">Cloning the Repository</a></li>
+        <li><a href="#configuring-api-key">Configuring API Key</a></li>
+        <li><a href="#javafx-integration">JavaFX Integration</a></li>
+        <li><a href="#json-jar-integration">JSON Jar Integration</a></li>
+        <li><a href="#scene-builder-integration-optional">Scene Builder Integration (Optional)</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#run">Run</a>
+    </li>
+    <li>
+      <a href="#contributors">Contributors</a>
+    </li>
+    <li>
+      <a href="#license">License</a>
+    </li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
 > NaviJeff is aimed at commuters residing within and outside Northern Metro Manila.
 > It seeks to improve the current jeepney routing system for Northern Metro Manila, 
 > especially focusing on optimizing travel costs and even travel time when hopping 
 > from city to city.
 
-## Features
+<p align="right">[<a href="#readme-top">Back to top</a>]</p>
 
+### Features
 - Landing page with user input
 - Routing page with user input and routing display
 - Map page for showing fourteen jeepney stations
@@ -14,30 +80,36 @@
 - Map auto pan and map zoom in/out
 - Functional routing system using A* algorithm
 
-## Technologies Used
+<p align="right">[<a href="#readme-top">Back to top</a>]</p>
 
+### Technologies Used
 NaviJeff uses a number of technologies to work properly:
+- [NetBeans IDE](https://netbeans.apache.org/front/main/index.html)
+- [JSON Jar](https://jar-download.com/artifacts/org.json/json/20210307/source-code)
+- [Scene Builder](https://gluonhq.com/products/scene-builder/)
+- [Java FX](https://openjfx.io/)
+- [Maps Javascript API](https://developers.google.com/maps)
 
-- [NetBeans IDE](https://netbeans.apache.org/front/main/index.html): A development environment, tooling platform and application framework.
-- [JSON Jar](https://jar-download.com/artifacts/org.json/json/20210307/source-code): A light-weight, language independent, data interchange format.
-- [Scene Builder](https://gluonhq.com/products/scene-builder/): A drag & drop user interface design which allows for rapid iteration.
-- [Java FX](https://openjfx.io/): An open source, next generation client application platform for desktop, mobile and embedded systems built on Java.
-- [Maps Javascript API](https://developers.google.com/maps): An API that lets developers customize maps with their own content and imagery for display on web pages and mobile devices.
+<p align="right">[<a href="#readme-top">Back to top</a>]</p>
 
+<!-- APPLICATION SNAPSHOTS -->
 ## Application Snapshots
 
 ### Landing Page
-![image](https://github.com/krislette/jeepney-navigation/assets/143507354/0715c5e4-51e0-4e87-88b2-ca5633119c4a)
+![Landing Page](https://github.com/krislette/jeepney-navigation/assets/143507354/0715c5e4-51e0-4e87-88b2-ca5633119c4a)
 
 ### Routing Page
-![image](https://github.com/krislette/jeepney-navigation/assets/143507354/35368003-8426-4d0b-bf0e-0e5017acc30b)
+![Routing Page](https://github.com/krislette/jeepney-navigation/assets/143507354/35368003-8426-4d0b-bf0e-0e5017acc30b)
 
-## Maps Page
-![image](https://github.com/krislette/jeepney-navigation/assets/143507354/1a5a6a2e-a1a0-4c8c-851d-f02b1c9dc938)
+### Maps Page
+![Maps Page](https://github.com/krislette/jeepney-navigation/assets/143507354/1a5a6a2e-a1a0-4c8c-851d-f02b1c9dc938)
 
-## Sattelite View
-![image](https://github.com/krislette/jeepney-navigation/assets/143507354/e927fa62-a8ed-4ac8-bbb4-810275b81898)
+### Satellite View
+![Satellite View](https://github.com/krislette/jeepney-navigation/assets/143507354/e927fa62-a8ed-4ac8-bbb4-810275b81898)
 
+<p align="right">[<a href="#readme-top">Back to top</a>]</p>
+
+<!-- FOLDER STRUCTURE -->
 ## Folder Structure
 
     src
@@ -60,6 +132,9 @@ NaviJeff uses a number of technologies to work properly:
     └── images                        # All images used in the app
     README.md
 
+<p align="right">[<a href="#readme-top">Back to top</a>]</p>
+
+<!-- INSTALLATION -->
 ## Installation
 
 ### Prerequisites
@@ -151,10 +226,16 @@ If you want to modify the .fxml files (UI), you should have a [Scene Builder](ht
 
 5. Click `Apply` on the bottom of the dialog box, and then click `OK` to close the dialog box.
 
+<p align="right">[<a href="#readme-top">Back to top</a>]</p>
+
+<!-- RUN -->
 ## Run
 
 To run the program, right-click the project name on your NetBeans IDE and click `Clean and Build`. Afterwards, just right-click the project name again and then click `Run`. 
 
+<p align="right">[<a href="#readme-top">Back to top</a>]</p>
+
+<!-- LICENSE -->
 ## Contributors
 
 We would like to thank the following contributors for their support and contributions to this project:
@@ -171,4 +252,4 @@ We would like to thank the following contributors for their support and contribu
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See LICENSE.txt for more information.
