@@ -165,7 +165,7 @@ We would like to thank the following contributors for their support and contribu
 
 - [John Lloyd](https://github.com/JLS0110) for creating the wireframes, [landing page](#Landing-Page) UI, and collating frontend resources from other frontend developers.
 
-- [Sophia](https://github.com/sophiarya) for creating the initial wireframes that were adapted to the application, [router page](#Routing-Page) UI, and [map page](#Map-Page) UI.
+- [Sophia](https://github.com/sophiarya) for creating the initial wireframes that were adapted to the application, [router page](#Routing-Page) UI, and [map page](#Maps-Page) UI.
 
 - [Rijan]() for creating the [landing page](#Landing-Page) UI, and adding ideas for the application flow.
 
