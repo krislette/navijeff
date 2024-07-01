@@ -101,7 +101,7 @@ https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 - If you used `NetBeans` to clone your forked repository, simply click `Open Project` on the dialog that will appear after cloning.
 
 > After opening the project, you should see all the files listed on 
-> the [Folder Structure](##Folder-Structure), but without the `config.js` file.
+> the [Folder Structure](#Folder-Structure), but without the `config.js` file.
 
 ### Configuring API key
 
