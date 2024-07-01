@@ -161,7 +161,7 @@ We would like to thank the following contributors for their support and contribu
 
 - [Acelle](https://github.com/krislette) for creating the routing paths using Directions API, JSON data, map page backend, drawing markers, fetching the API key, and finishing touches.
 
-- [David](https://github.com/perse-v) for creating the algorithm, javascript-java interaction, drawing markers and paths, fixing program logic, and finalizing the map.
+- [David](https://github.com/perse-v) for creating the algorithm, javascript-java interaction, routing page backend, fixing program logic, and finalizing the map.
 
 - [John Lloyd](https://github.com/JLS0110) for creating the wireframes, [landing page](#Landing-Page) UI, and collating frontend resources from other frontend developers.
 
