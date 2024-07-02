@@ -176,7 +176,7 @@ https://github.com/krislette/YOUR_REPOSITORY_NAME.git
 
 1. Create a `config.js` file under the backend folder.
 
-2. Make sure that you have **API key** from Google. To know more about getting your own API key, you can check this [video](https://youtu.be/hsNlz7-abd0?si=G-JMXV_MzokUXIEL). After getting an API key, type the code below on the `config.js` file you just created. Make sure to replace `YOUR_API_KEY_HERE` with your actual API key.
+2. Make sure that you have an **API key** from Google. To know more about getting your own API key, you can check this [video](https://youtu.be/hsNlz7-abd0?si=G-JMXV_MzokUXIEL). After getting an API key, type the code below on the `config.js` file you just created. Make sure to replace `YOUR_API_KEY_HERE` with your actual API key.
 ```javascript
 const GOOGLE_MAPS_API_KEY = "YOUR_API_KEY_HERE";
 ```
@@ -213,7 +213,7 @@ If you want to modify the .fxml files (UI), you should have a [Scene Builder](ht
 
 2. Click `Options`, a dialog box will appear. From there click `Java`. 
 
-3. Under the `Scene Builder Home` dropdown menu click `Brows` and navigate to your Scene Builder installed folder.
+3. Under the `Scene Builder Home` dropdown menu click `Browse` and navigate to your Scene Builder installed folder.
 
 4. Click `OK` and tick the checkbox below the dropdown menu. 
 
