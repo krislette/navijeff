@@ -23,44 +23,42 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#technologies-used">Technologies Used</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#application-snapshots">Application Snapshots</a>
-    </li>
-    <li>
-      <a href="#folder-structure">Folder Structure</a>
-    </li>
-    <li>
-      <a href="#installation">Installation</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#cloning-the-repository">Cloning the Repository</a></li>
-        <li><a href="#configuring-api-key">Configuring API Key</a></li>
-        <li><a href="#javafx-integration">JavaFX Integration</a></li>
-        <li><a href="#json-jar-integration">JSON Jar Integration</a></li>
-        <li><a href="#scene-builder-integration-optional">Scene Builder Integration (Optional)</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#run">Run</a>
-    </li>
-    <li>
-      <a href="#contributors">Contributors</a>
-    </li>
-    <li>
-      <a href="#license">License</a>
-    </li>
-  </ol>
-</details>
+<summary>Table of Contents</summary>
+<ol>
+  <li>
+    <a href="#about-the-project">About The Project</a>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#technologies-used">Technologies Used</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#application-snapshots">Application Snapshots</a>
+  </li>
+  <li>
+    <a href="#folder-structure">Folder Structure</a>
+  </li>
+  <li>
+    <a href="#installation">Installation</a>
+    <ul>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#cloning-the-repository">Cloning the Repository</a></li>
+      <li><a href="#configuring-api-key">Configuring API Key</a></li>
+      <li><a href="#javafx-integration">JavaFX Integration</a></li>
+      <li><a href="#json-jar-integration">JSON Jar Integration</a></li>
+      <li><a href="#scene-builder-integration-optional">Scene Builder Integration (Optional)</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#run">Run</a>
+  </li>
+  <li>
+    <a href="#contributors">Contributors</a>
+  </li>
+  <li>
+    <a href="#license">License</a>
+  </li>
+</ol>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -69,8 +67,6 @@
 > It seeks to improve the current jeepney routing system for Northern Metro Manila, 
 > especially focusing on optimizing travel costs and even travel time when hopping 
 > from city to city.
-
-<p align="right">[<a href="#readme-top">Back to top</a>]</p>
 
 ### Features
 - Landing page with user input
