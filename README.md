@@ -23,7 +23,7 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<summary>Table of Contents</summary>
+## Table Of Contents
 <ol>
   <li>
     <a href="#about-the-project">About The Project</a>
