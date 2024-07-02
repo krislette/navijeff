@@ -22,6 +22,14 @@
   </p>
 </div>
 
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+> NaviJeff is aimed at commuters residing within and outside Northern Metro Manila.
+> It seeks to improve the current jeepney routing system for Northern Metro Manila, 
+> especially focusing on optimizing travel costs and even travel time when hopping 
+> from city to city.
+
 <!-- TABLE OF CONTENTS -->
 ## Table Of Contents
 <ol>
@@ -58,15 +66,7 @@
   <li>
     <a href="#license">License</a>
   </li>
-</ol>
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-> NaviJeff is aimed at commuters residing within and outside Northern Metro Manila.
-> It seeks to improve the current jeepney routing system for Northern Metro Manila, 
-> especially focusing on optimizing travel costs and even travel time when hopping 
-> from city to city.
+</ol> 
 
 ### Features
 - Landing page with user input
