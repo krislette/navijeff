@@ -31,11 +31,12 @@
 > from city to city.
 
 <!-- TABLE OF CONTENTS -->
-## Table Of Contents
+### Table Of Contents
 <ol>
   <li>
     <a href="#about-the-project">About The Project</a>
     <ul>
+      <li><a href="#table-of-contents">Table Of Contents</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#technologies-used">Technologies Used</a></li>
     </ul>
