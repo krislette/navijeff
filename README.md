@@ -78,9 +78,8 @@
 - Map page for showing fourteen jeepney stations
 - Pretty and user-friendly UI and UX
 - Map auto pan and map zoom in/out
+- Sattelite view
 - Functional routing system using A* algorithm
-
-<p align="right">[<a href="#readme-top">Back to top</a>]</p>
 
 ### Technologies Used
 NaviJeff uses a number of technologies to work properly:
@@ -89,8 +88,6 @@ NaviJeff uses a number of technologies to work properly:
 - [Scene Builder](https://gluonhq.com/products/scene-builder/)
 - [Java FX](https://openjfx.io/)
 - [Maps Javascript API](https://developers.google.com/maps)
-
-<p align="right">[<a href="#readme-top">Back to top</a>]</p>
 
 <!-- APPLICATION SNAPSHOTS -->
 ## Application Snapshots
@@ -106,8 +103,6 @@ NaviJeff uses a number of technologies to work properly:
 
 ### Satellite View
 ![Satellite View](https://github.com/krislette/jeepney-navigation/assets/143507354/e927fa62-a8ed-4ac8-bbb4-810275b81898)
-
-<p align="right">[<a href="#readme-top">Back to top</a>]</p>
 
 <!-- FOLDER STRUCTURE -->
 ## Folder Structure
@@ -132,17 +127,15 @@ NaviJeff uses a number of technologies to work properly:
     └── images                        # All images used in the app
     README.md
 
-<p align="right">[<a href="#readme-top">Back to top</a>]</p>
-
 <!-- INSTALLATION -->
 ## Installation
 
 ### Prerequisites
-- Ensure you have Git installed on your local machine. If not, download and install.
-- Ensure you have NetBeans IDE on your local machine. If not, download and install.
+- Ensure you have **Git** installed on your local machine. If not, download and install.
+- Ensure you have **NetBeans IDE** on your local machine. If not, download and install.
 
-### [1.1] Cloning the repository using cmd
-1. Fork this repository
+### Cloning the repository using cmd
+1. Fork this repository.
 
 2. Open your terminal by typing `cmd` on your search bar.
 
@@ -156,7 +149,7 @@ cd path/to/desired/directory
 git clone https://github.com/krislette/YOUR_REPOSITORY_NAME.git
 ```
 
-### [1.2] Cloning the repository using NetBeans
+### Cloning the repository using NetBeans
 1. Open NetBeans IDE.
 
 2. Go to `Team` > `Remote` > `Clone`.
@@ -170,7 +163,7 @@ https://github.com/krislette/YOUR_REPOSITORY_NAME.git
 
 5. Click `Finish`.
 
-### [2] Opening the project
+### Opening the project
 
 - If you used the `cmd` to clone your forked repository, open NetBeans and click `Open Project`. From there, find the directory of your forked repository and open it.
 
@@ -179,30 +172,30 @@ https://github.com/krislette/YOUR_REPOSITORY_NAME.git
 > After opening the project, you should see all the files listed on 
 > the [Folder Structure](#Folder-Structure), but without the `config.js` file.
 
-### [3] Configuring API key
+### Configuring API key
 
-1. Create a `config.js` file under the `backend` folder.
+1. Create a `config.js` file under the backend folder.
 
-2. Make sure that you have `API key` from Google. To know more about getting your own `API key`, you can see this [video](https://youtu.be/hsNlz7-abd0?si=G-JMXV_MzokUXIEL). After getting an `API key`, type the code below on the `config.js` file you just created.
+2. Make sure that you have **API key** from Google. To know more about getting your own API key, you can check this [video](https://youtu.be/hsNlz7-abd0?si=G-JMXV_MzokUXIEL). After getting an API key, type the code below on the `config.js` file you just created. Make sure to replace `YOUR_API_KEY_HERE` with your actual API key.
 ```javascript
-const GOOGLE_MAPS_API_KEY = "YOUR_API_KEY";
+const GOOGLE_MAPS_API_KEY = "YOUR_API_KEY_HERE";
 ```
 
-### [4] JavaFX Integration
+### JavaFX Integration
 
-To run the application, you should have JavaFX installed within your system. To know more about JavaFX installation, see this [video](https://www.youtube.com/watch?v=Iun8wEtn4Zs&t=1s).
+To run the application, you should have **JavaFX** installed within your system. To know more about JavaFX installation, check this [video](https://www.youtube.com/watch?v=Iun8wEtn4Zs&t=1s).
 
-1. Once you have `JavaFX` installed and configured on your `NetBeans IDE`, go to the project, right-click and click `Properties`.
+1. Once you have JavaFX installed and configured on your NetBeans IDE, go to the project, right-click and click `Properties`.
 
 2. A dialog box will appear, click `Libraries` and then click the `+` button on the right of `Classpath`.
 
-3. Click `Add Library`, a dialog box will appear again, and navigate through your available libraries. From there, find the `JavaFX` library you created by following the video. 
+3. Click `Add Library`, a dialog box will appear again, and navigate through your available libraries. From there, find the **JavaFX library** you created by following the [video](https://www.youtube.com/watch?v=Iun8wEtn4Zs&t=1s).
 
-4. After finding the `JavaFX` library you have installed, click `Add Library`. You should now see the `JavaFX` library under your `Classpath`.
+4. After finding the **JavaFX library** you have installed, click `Add Library`. You should now see the JavaFX library under your `Classpath`.
 
-5. Before clicking `OK`, click the `Java Platform` dropdown on top, and select the `JDK FX` that you have installed by following the video. After selecting the correct platform, you can now click `OK` to finalize the changes.
+5. Before clicking `OK`, click the `Java Platform` dropdown on top, and select the **JDK FX** that you have installed by following the [video](https://www.youtube.com/watch?v=Iun8wEtn4Zs&t=1s). After selecting the correct platform, you can now click `OK` to finalize and save the changes.
 
-### [5] JSON Jar Integration
+### JSON Jar Integration
 
 1. Go to your project, right-click and click `Properties`.
 
@@ -212,28 +205,24 @@ To run the application, you should have JavaFX installed within your system. To 
 
 4. Click the jar file and click `Open`. You should now see the `json-20210307.jar` file under your `Classpath`, and then click `OK`.
 
-### [6] Scene Builder Integration (Optional)
+### Scene Builder Integration (Optional)
 
 If you want to modify the .fxml files (UI), you should have a [Scene Builder](https://gluonhq.com/products/scene-builder/) installed.
 
-1. To add `Scene Builder` to your IDE, click `Tools` on the menu bar of your NetBeans IDE. 
+1. To add **Scene Builder** to your IDE, click `Tools` on the menu bar of your NetBeans IDE. 
 
 2. Click `Options`, a dialog box will appear. From there click `Java`. 
 
-3. Under the `Scene Builder Home` dropdown menu click `Brows` and navigate to your `Scene Builder` installed folder.
+3. Under the `Scene Builder Home` dropdown menu click `Brows` and navigate to your Scene Builder installed folder.
 
 4. Click `OK` and tick the checkbox below the dropdown menu. 
 
 5. Click `Apply` on the bottom of the dialog box, and then click `OK` to close the dialog box.
 
-<p align="right">[<a href="#readme-top">Back to top</a>]</p>
-
 <!-- RUN -->
 ## Run
 
 To run the program, right-click the project name on your NetBeans IDE and click `Clean and Build`. Afterwards, just right-click the project name again and then click `Run`. 
-
-<p align="right">[<a href="#readme-top">Back to top</a>]</p>
 
 <!-- LICENSE -->
 ## Contributors
@@ -248,8 +237,10 @@ We would like to thank the following contributors for their support and contribu
 
 - [Sophia](https://github.com/sophiarya) for creating the initial wireframes that were adapted to the application, [router page](#Routing-Page) UI, and [map page](#Maps-Page) UI.
 
-- [Rijan]() for creating the [landing page](#Landing-Page) UI, and adding ideas for the application flow.
+- [Rijan](https://github.com/pj-drama) for creating the [landing page](#Landing-Page) UI, and adding ideas for the application flow.
 
 ## License
 
 Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See LICENSE.txt for more information.
+
+<p align="right">[<a href="#readme-top">Back to top</a>]</p>
