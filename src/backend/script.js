@@ -112,20 +112,31 @@ async function initMap() {
         styles: lightModeStyles
     });
     
-    const toggleButton = document.createElement("button");
-    
-    toggleButton.textContent = "Night Mode";
-    toggleButton.classList.add("custom-map-control-button");
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(toggleButton);
-    
-    let nightMode = false;
-    
-    toggleButton.addEventListener("click", () => {
-        nightMode = !nightMode;
-        toggleButton.textContent = nightMode ? "Light Mode" : "Night Mode";
-        map.setOptions({
-            styles: nightMode ? nightModeStyles : lightModeStyles
-        });
+    const controlDiv = document.createElement('div');
+    controlDiv.classList.add('custom-map-control');
+
+    const lightButton = document.createElement('button');
+    lightButton.textContent = "Light";
+    lightButton.classList.add("custom-map-control-button", "active");
+    controlDiv.appendChild(lightButton);
+
+    const darkButton = document.createElement('button');
+    darkButton.textContent = "Dark";
+    darkButton.classList.add("custom-map-control-button");
+    controlDiv.appendChild(darkButton);
+
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(controlDiv);
+
+    lightButton.addEventListener("click", () => {
+        lightButton.classList.add("active");
+        darkButton.classList.remove("active");
+        map.setOptions({ styles: lightModeStyles });
+    });
+
+    darkButton.addEventListener("click", () => {
+        darkButton.classList.add("active");
+        lightButton.classList.remove("active");
+        map.setOptions({ styles: nightModeStyles });
     });
 }
 
