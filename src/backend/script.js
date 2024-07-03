@@ -37,13 +37,40 @@ function getJeepneyIcon() {
     };
 }
 
-function addMarker(location, title) {
+function sendLocationToController(location, latitude, longitude) {
+    if (typeof javaConnector !== 'undefined') {
+        javaConnector.displayLocationInfo(location, latitude, longitude);
+    } else {
+        console.error("Java connector is not defined.");
+    }
+}
+
+function addMarker(location, title, clickable = false) {
     const marker = new google.maps.Marker({
         position: location,
         map: map,
         title: title,
         icon: getJeepneyIcon()
     });
+    
+    if (clickable) {
+        google.maps.event.addListener(marker, "click", () => {
+            const geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ "location": location }, (results, status) => {
+                if (status === "OK") {
+                    if (results[0]) {
+                        const address = results[0].formatted_address;
+                        window.javaApp.displayLocationInfo(title, address);
+                    } else {
+                        window.javaApp.displayLocationInfo(title, "No results found");
+                    }
+                } else {
+                    window.javaApp.displayLocationInfo(title, "Geocoder failed due to: " + status);
+                }
+            });
+        });
+    }
+    
     markers.push(marker);
 }
 
@@ -122,7 +149,7 @@ function setStationPins(geopositions) {
 
     // Add nodes as markers
     nodes.forEach(node => {
-        addMarker({ lat: node.latitude, lng: node.longitude }, node.location);
+        addMarker({ lat: node.latitude, lng: node.longitude }, node.location, true);
     });
 }
 

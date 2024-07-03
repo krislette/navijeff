@@ -32,6 +32,8 @@ import java.util.Map;
 import algorithm.Node;
 import algorithm.Edge;
 import algorithm.AStar;
+import javafx.application.Platform;
+import javafx.scene.layout.Pane;
 
 public class Controller implements Initializable {
 
@@ -59,6 +61,15 @@ public class Controller implements Initializable {
     
     @FXML
     private ScrollPane scrollPane;
+    
+    @FXML
+    private Pane locationInfo;
+    
+    @FXML
+    private Label locationAddress;
+    
+    @FXML
+    private Label locationName;
      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -118,6 +129,18 @@ public class Controller implements Initializable {
     
     public WebView getWebView() {
         return webView;
+    }
+    
+    // Method called from JavaScript to update location info
+    public void displayLocationInfo(String stationName, String address) {
+        Platform.runLater(() -> {
+            if (locationInfo != null && locationAddress != null) {
+                locationName.setText(stationName);
+                locationName.setWrapText(true);
+                locationAddress.setText(address);
+                locationAddress.setWrapText(true);
+            }
+        });
     }
     
     // Method to ensure currLocation and trgtLocation are initialized before setting values
