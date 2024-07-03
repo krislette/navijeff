@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
@@ -18,7 +19,7 @@
         <URL value="@style.css" />
     </stylesheets>
     <children>
-        <WebView fx:id="webView" layoutX="278.0" layoutY="50.0" minHeight="449.0" minWidth="522.0" prefHeight="450.0" prefWidth="522.0" />
+        <WebView fx:id="webView" layoutY="50.0" minHeight="449.0" minWidth="2.0" prefHeight="450.0" />
       <Pane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #695a9e;">
          <children>
             <Button id="homeB" alignment="TOP_CENTER" layoutX="600.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToLandingPage" style="-fx-background-color: FFFFFF;" text="Home" textAlignment="CENTER">
@@ -66,59 +67,60 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="sidePanel" layoutX="3.0" layoutY="56.0" prefHeight="78.0" prefWidth="269.0" style="-fx-background-radius: 28; -fx-background-color: FF8811;">
+      <Pane fx:id="sidePanel1" layoutX="524.0" layoutY="159.0" prefHeight="279.0" prefWidth="269.0" style="-fx-background-color: #695a9e; -fx-background-radius: 0 0 28 28;">
          <children>
-            <Text fill="WHITE" layoutX="1.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STATION LOCATOR" textAlignment="CENTER" wrappingWidth="267.08211106061935">
+            <Pane fx:id="locationInfo" layoutX="14.0" layoutY="18.0" prefHeight="247.0" prefWidth="241.0" style="-fx-background-color: #fbfcfa; -fx-background-radius: 0 0 28 28;">
+               <children>
+                  <Label layoutX="82.0" layoutY="9.0" text="Station Name" textFill="#757171">
+                     <font>
+                        <Font name="Franklin Gothic Heavy Italic" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="122.0" text="Station Address" textFill="#757171">
+                     <font>
+                        <Font name="Franklin Gothic Heavy Italic" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="locationName" layoutX="41.0" layoutY="29.0" prefHeight="28.0" prefWidth="192.0">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="locationAddress" alignment="TOP_LEFT" layoutX="41.0" layoutY="149.0" prefHeight="93.0" prefWidth="181.0">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="8.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/station.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="34.0" layoutX="10.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/address.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="28.0" fitWidth="220.0" layoutX="11.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/line.png" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutY="67.0" prefHeight="8.0" prefWidth="241.0" style="-fx-background-color: #695a9e;" />
+                  <Pane layoutY="106.0" prefHeight="8.0" prefWidth="241.0" style="-fx-background-color: #695a9e;" />
+                  <Circle fill="#695a9e" layoutX="-3.0" layoutY="91.0" radius="10.0" stroke="#695a9e" strokeType="INSIDE" />
+               </children>
+            </Pane>
+            <Circle fill="#695a9e" layoutX="258.0" layoutY="109.0" radius="10.0" stroke="#695a9e" strokeType="INSIDE" />
+         </children>
+      </Pane>
+      <Pane fx:id="sidePanel" layoutX="524.0" layoutY="109.0" prefHeight="50.0" prefWidth="269.0" style="-fx-background-radius: 28 28 0 0; -fx-background-color: FF8811;">
+         <children>
+            <Text fill="WHITE" layoutX="1.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STATION LOCATOR" textAlignment="CENTER" wrappingWidth="267.08211106061935">
                <font>
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
             </Text>
-         </children>
-      </Pane>
-      <Pane fx:id="sidePanel1" layoutX="3.0" layoutY="102.0" prefHeight="394.0" prefWidth="269.0" style="-fx-background-color: #695a9e; -fx-background-radius: 0 0 28 28;">
-         <children>
-            <Pane fx:id="locationInfo" layoutX="14.0" layoutY="7.0" prefHeight="371.0" prefWidth="241.0" style="-fx-background-color: #fbfcfa;">
-               <children>
-                  <ImageView fitHeight="89.0" fitWidth="230.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/jeep-ticket.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="82.0" layoutY="27.0" text="Station Name">
-                     <font>
-                        <Font name="Arial Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="89.0" fitWidth="230.0" layoutX="15.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/jeep-ticket.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="75.0" layoutY="177.0" text="Station Address">
-                     <font>
-                        <Font name="Arial Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Pane layoutX="14.0" layoutY="92.0" prefHeight="59.0" prefWidth="212.0" style="-fx-background-color: #cdd5ff;">
-                     <children>
-                        <Label fx:id="locationName" alignment="CENTER" layoutX="11.0" layoutY="6.0" prefHeight="36.0" prefWidth="190.0" textAlignment="CENTER">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="15.0" layoutY="239.0" prefHeight="117.0" prefWidth="212.0" style="-fx-background-color: #cdd5ff;">
-                     <children>
-                        <Label fx:id="locationAddress" layoutX="10.0" prefHeight="117.0" prefWidth="190.0" textAlignment="CENTER">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </children>
-            </Pane>
          </children>
       </Pane>
     </children>

@@ -24,7 +24,7 @@ async function initMap() {
         },
         zoom: 12,
         mapTypeId: "roadmap",
-        zoomControl: true,
+        zoomControl: false,
         streetViewControl: false,
         mapId: "DEMO_MAP_ID"
     });
