@@ -76,6 +76,7 @@
 - Pretty and user-friendly UI and UX
 - Map auto pan and map zoom in/out
 - Sattelite view
+- Dark mode
 - Functional routing system using A* algorithm
 
 ### Technologies Used
@@ -93,13 +94,16 @@ NaviJeff uses a number of technologies to work properly:
 ![Landing Page](https://github.com/krislette/jeepney-navigation/assets/143507354/0715c5e4-51e0-4e87-88b2-ca5633119c4a)
 
 ### Routing Page
-![Routing Page](https://github.com/krislette/jeepney-navigation/assets/143507354/35368003-8426-4d0b-bf0e-0e5017acc30b)
+![Routing Page](https://github.com/krislette/jeepney-navigation/assets/143507354/deb5725a-0477-4a1e-98ee-d77882c780e6)
 
 ### Maps Page
-![Maps Page](https://github.com/krislette/jeepney-navigation/assets/143507354/1a5a6a2e-a1a0-4c8c-851d-f02b1c9dc938)
+![Maps Page](https://github.com/krislette/jeepney-navigation/assets/143507354/b71605d3-cc9a-481a-bb30-ff91770dd8c1)
 
 ### Satellite View
-![Satellite View](https://github.com/krislette/jeepney-navigation/assets/143507354/e927fa62-a8ed-4ac8-bbb4-810275b81898)
+![Satellite View](https://github.com/krislette/jeepney-navigation/assets/143507354/62a24ed4-473a-4301-b798-eb90727788cc)
+
+### Dark Mode
+![Dark Mode](https://github.com/krislette/jeepney-navigation/assets/143507354/859ae41a-2ffd-4dc0-b3ec-39a6f3daa1f8)
 
 <!-- FOLDER STRUCTURE -->
 ## Folder Structure
