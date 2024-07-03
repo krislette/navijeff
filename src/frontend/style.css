@@ -15,9 +15,11 @@
     -fx-text-alignment: center;
     -fx-text-origin: top;
 }
+
 #vboxContent .jeep-fare {
     -fx-font-size: 12px;
 }
+
 #vboxContent .edge-distance {
     -fx-font-size: 12px;
     -fx-text-alignment: center; 
