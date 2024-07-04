@@ -105,11 +105,19 @@ async function initMap() {
             latLngBounds: METRO_MANILA_BOUNDS,
             strictBounds: false
         },
+        styles: [
+            {
+                featureType: "poi",
+                stylers: [
+                    { visibility: "off" }
+                ]
+            },
+            lightModeStyles 
+        ],
         zoom: 12,
         mapTypeId: "roadmap",
         zoomControl: false,
-        streetViewControl: false,
-        styles: lightModeStyles
+        streetViewControl: false
     });
     
     const controlDiv = document.createElement('div');

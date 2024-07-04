@@ -82,6 +82,8 @@ public class Controller implements Initializable {
     
     @FXML
     private ImageView addressLogo;
+    
+    private boolean isImageSet;
      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -164,6 +166,8 @@ public class Controller implements Initializable {
             scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
             scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         }
+        
+        this.isImageSet = false;
     }
     
     public WebView getWebView() {
@@ -228,8 +232,11 @@ public class Controller implements Initializable {
             locationAddress.setText(address);
             locationAddress.setWrapText(true);
             
-            stationLogo.setImage(new Image("file:src/images/station.png"));
-            addressLogo.setImage(new Image("file:src/images/address.png"));
+            if (!isImageSet) {
+                stationLogo.setImage(new Image("file:src/images/station.png"));
+                addressLogo.setImage(new Image("file:src/images/address.png"));
+                isImageSet = true;
+            }
             
             setStationImage(stationName);
         });
