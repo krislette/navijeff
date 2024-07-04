@@ -22,7 +22,7 @@
     </stylesheets>
    <children>
       <WebView fx:id="webView" layoutX="278.0" layoutY="50.0" minHeight="449.0" minWidth="522.0" prefHeight="450.0" prefWidth="522.0" />
-      <Pane fx:id="sidePanel" layoutX="3.0" layoutY="56.0" prefHeight="78.0" prefWidth="269.0" style="-fx-background-radius: 28; -fx-background-color: FF8811;">
+      <Pane fx:id="sidePanel" layoutX="4.0" layoutY="56.0" prefHeight="78.0" prefWidth="269.0" style="-fx-background-radius: 28; -fx-background-color: FF8811;">
          <children>
             <Text fill="WHITE" layoutX="1.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SHORTEST ROUTE" textAlignment="CENTER" wrappingWidth="267.08211106061935">
                <font>
@@ -31,7 +31,7 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="sidePanel1" layoutX="3.0" layoutY="102.0" prefHeight="394.0" prefWidth="269.0" style="-fx-background-color: #695a9e; -fx-background-radius: 0 0 28 28;">
+      <Pane fx:id="sidePanel1" layoutX="4.0" layoutY="102.0" prefHeight="394.0" prefWidth="269.0" style="-fx-background-color: #695a9e; -fx-background-radius: 0 0 28 28;">
          <children>
             <ComboBox fx:id="currLocation" layoutX="15.0" layoutY="5.0" onAction="#getCurrentLocation" prefHeight="39.0" prefWidth="241.0" promptText="Please Select Starting Point" visibleRowCount="20">
                <cursor>

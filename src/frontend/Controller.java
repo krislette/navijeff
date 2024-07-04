@@ -37,11 +37,9 @@ import algorithm.AStar;
 
 import javafx.geometry.Pos;
 import javafx.application.Platform;
-import javafx.scene.layout.Pane;
 
 import backend.Location;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
+import javafx.scene.image.ImageView;
 
 public class Controller implements Initializable {
 
@@ -71,13 +69,19 @@ public class Controller implements Initializable {
     private ScrollPane scrollPane;
     
     @FXML
-    private Pane locationInfo;
-    
-    @FXML
     private Label locationAddress;
     
     @FXML
     private Label locationName;
+    
+    @FXML
+    private ImageView stationImage;
+    
+    @FXML
+    private ImageView stationLogo;
+    
+    @FXML
+    private ImageView addressLogo;
      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -88,43 +92,38 @@ public class Controller implements Initializable {
             // Define the stations with their corresponding city
             List<Location> locations = List.of(
                 new Location("Phase 1 Church", "North Caloocan"),
-                new Location("Novaliches", "Quezon City"),
-                new Location("VGC Terminal", "Valenzuela"),
                 new Location("Monumento", "South Caloocan"),
+                new Location("VGC Terminal", "Valenzuela"),
                 new Location("Polo Market", "Valenzuela"),
+                new Location("Novaliches", "Quezon City"),
+                new Location("Gateway Mall", "Quezon City"),
+                new Location("SM Fairview", "Quezon City"),
                 new Location("Naval St. Navotas", "Navotas"),
                 new Location("Fisher Malabon", "Malabon"),
                 new Location("Quiapo", "Manila"),
                 new Location("San Juan Comelec", "San Juan"),
                 new Location("Pasig Blvd. Ext.", "Pasig"),
                 new Location("SM Marikina", "Marikina"),
-                new Location("EDSA Terminal", "Mandaluyong"),
-                new Location("Gateway Mall", "Quezon City"),
-                new Location("SM Fairview", "Quezon City")
+                new Location("EDSA Terminal", "Mandaluyong")
             );
 
             currLocation.setItems(FXCollections.observableArrayList(locations));
             trgtLocation.setItems(FXCollections.observableArrayList(locations));
 
             // Set custom cell factory to display location names with guides
-            Callback<ListView<Location>, ListCell<Location>> cellFactory = new Callback<>() {
+            Callback<ListView<Location>, ListCell<Location>> cellFactory = (ListView<Location> param) -> new ListCell<>() {
                 @Override
-                public ListCell<Location> call(ListView<Location> param) {
-                    return new ListCell<>() {
-                        @Override
-                        protected void updateItem(Location item, boolean empty) {
-                            super.updateItem(item, empty);
-                            if (empty || item == null) {
-                                setText(null);
-                            } else {
-                                setText(item.getStation());
-                                
-                                Label lblCity = new Label(" " + item.getCity());
-                                lblCity.getStyleClass().add("city");
-                                setGraphic(lblCity);
-                            }
-                        }
-                    };
+                protected void updateItem(Location item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty || item == null) {
+                        setText(null);
+                    } else {
+                        setText(item.getStation());
+                        
+                        Label lblCity = new Label(" " + item.getCity());
+                        lblCity.getStyleClass().add("city");
+                        setGraphic(lblCity);
+                    }
                 }
             };
             currLocation.setCellFactory(cellFactory);
@@ -171,25 +170,78 @@ public class Controller implements Initializable {
         return webView;
     }
     
+    public void setStationImage(String stationName) {
+        switch (stationName) {
+            case "Phase 1 Church":
+                stationImage.setImage(new Image("file:src/places/phase-1.jpg")); 
+                break;
+            case "Novaliches": 
+                stationImage.setImage(new Image("file:src/places/novaliches.jpg")); 
+                break;
+            case "VGC Terminal": 
+                stationImage.setImage(new Image("file:src/places/vgc.jpg")); 
+                break;
+            case "Monumento": 
+                stationImage.setImage(new Image("file:src/places/monumento.jpg")); 
+                break;
+            case "Polo Market": 
+                stationImage.setImage(new Image("file:src/places/polo.jpg")); 
+                break;
+            case "Naval St. Navotas": 
+                stationImage.setImage(new Image("file:src/places/navotas.jpg")); 
+                break;
+            case "Fisher Malabon": 
+                stationImage.setImage(new Image("file:src/places/malabon.jpg")); 
+                break;
+            case "Quiapo": 
+                stationImage.setImage(new Image("file:src/places/quiapo.jpg")); 
+                break;
+            case "San Juan Comelec": 
+                stationImage.setImage(new Image("file:src/places/san-juan.jpg")); 
+                break;
+            case "Pasig Blvd. Ext.": 
+                stationImage.setImage(new Image("file:src/places/pasig.jpg")); 
+                break;
+            case "SM Marikina": 
+                stationImage.setImage(new Image("file:src/places/marikina.jpg")); 
+                break;
+            case "EDSA Terminal": 
+                stationImage.setImage(new Image("file:src/places/mandaluyong.jpg")); 
+                break;
+            case "Gateway Mall": 
+                stationImage.setImage(new Image("file:src/places/gateway.jpg")); 
+                break;
+            case "SM Fairview": 
+                stationImage.setImage(new Image("file:src/places/fairview.jpg")); 
+                break;
+            default:
+                stationImage.setImage(null); 
+                break;
+        }
+    }
+    
     // Method called from JavaScript to update location info
     public void displayLocationInfo(String stationName, String address) {
         Platform.runLater(() -> {
-            if (locationInfo != null && locationAddress != null) {
-                locationName.setText(stationName);
-                locationName.setWrapText(true);
-                locationAddress.setText(address);
-                locationAddress.setWrapText(true);
-            }
+            locationName.setText(stationName);
+            locationName.setWrapText(true);
+            locationAddress.setText(address);
+            locationAddress.setWrapText(true);
+            
+            stationLogo.setImage(new Image("file:src/images/station.png"));
+            addressLogo.setImage(new Image("file:src/images/address.png"));
+            
+            setStationImage(stationName);
         });
     }
     
     // Method to ensure currLocation and trgtLocation are initialized before setting values
     public void setInitialLocations(String source, String destination) {
         if (currLocation != null && trgtLocation != null) {
-            Location srcLocation = findLocationByName(source);
-            Location destLocation = findLocationByName(destination);
-            currLocation.setValue(srcLocation);
-            trgtLocation.setValue(destLocation);
+            Location sourceLocation = findLocationByName(source);
+            Location destinationLocation = findLocationByName(destination);
+            currLocation.setValue(sourceLocation);
+            trgtLocation.setValue(destinationLocation);
         } else {
             System.out.println("currLocation or trgtLocation is null.");
         }

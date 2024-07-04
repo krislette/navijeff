@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,7 +20,7 @@
         <URL value="@style.css" />
     </stylesheets>
     <children>
-        <WebView fx:id="webView" layoutY="50.0" minHeight="449.0" minWidth="2.0" prefHeight="450.0" />
+        <WebView fx:id="webView" layoutY="50.0" minHeight="449.0" minWidth="522.0" prefHeight="450.0" prefWidth="522.0" />
       <Pane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #695a9e;">
          <children>
             <Button id="homeB" alignment="TOP_CENTER" layoutX="600.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToLandingPage" style="-fx-background-color: FFFFFF;" text="Home" textAlignment="CENTER">
@@ -66,17 +67,20 @@
                </effect>
             </ImageView>
          </children>
+         <effect>
+            <DropShadow height="10.0" radius="7.25" />
+         </effect>
       </Pane>
-      <Pane fx:id="sidePanel1" layoutX="524.0" layoutY="159.0" prefHeight="279.0" prefWidth="269.0" style="-fx-background-color: #695a9e; -fx-background-radius: 0 0 28 28;">
+      <Pane fx:id="sidePanel1" layoutX="527.0" layoutY="105.0" prefHeight="391.0" prefWidth="269.0" style="-fx-background-color: #695a9e; -fx-background-radius: 0 0 28 28;">
          <children>
-            <Pane fx:id="locationInfo" layoutX="14.0" layoutY="18.0" prefHeight="247.0" prefWidth="241.0" style="-fx-background-color: #fbfcfa; -fx-background-radius: 0 0 28 28;">
+            <Pane fx:id="locationInfo" layoutX="14.0" layoutY="6.0" prefHeight="372.0" prefWidth="241.0" style="-fx-background-color: #fbfcfa; -fx-background-radius: 0 0 28 28;">
                <children>
-                  <Label layoutX="82.0" layoutY="9.0" text="Station Name" textFill="#757171">
+                  <Label layoutX="82.0" layoutY="6.0" text="Station Name" textFill="#757171">
                      <font>
                         <Font name="Franklin Gothic Heavy Italic" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="75.0" layoutY="122.0" text="Station Address" textFill="#757171">
+                  <Label layoutX="75.0" layoutY="120.0" text="Station Address" textFill="#757171">
                      <font>
                         <Font name="Franklin Gothic Heavy Italic" size="13.0" />
                      </font>
@@ -86,21 +90,13 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="locationAddress" alignment="TOP_LEFT" layoutX="41.0" layoutY="149.0" prefHeight="93.0" prefWidth="181.0">
+                  <Label fx:id="locationAddress" alignment="TOP_LEFT" layoutX="41.0" layoutY="286.0" prefHeight="79.0" prefWidth="181.0">
                      <font>
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="8.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/station.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="25.0" fitWidth="34.0" layoutX="10.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/address.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="stationLogo" fitHeight="28.0" fitWidth="30.0" layoutX="8.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="addressLogo" fitHeight="25.0" fitWidth="34.0" layoutX="10.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fitHeight="28.0" fitWidth="220.0" layoutX="11.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/line.png" />
@@ -109,12 +105,13 @@
                   <Pane layoutY="67.0" prefHeight="8.0" prefWidth="241.0" style="-fx-background-color: #695a9e;" />
                   <Pane layoutY="106.0" prefHeight="8.0" prefWidth="241.0" style="-fx-background-color: #695a9e;" />
                   <Circle fill="#695a9e" layoutX="-3.0" layoutY="91.0" radius="10.0" stroke="#695a9e" strokeType="INSIDE" />
+                  <ImageView fx:id="stationImage" fitHeight="129.0" fitWidth="220.0" layoutX="11.0" layoutY="144.0" pickOnBounds="true" />
                </children>
             </Pane>
-            <Circle fill="#695a9e" layoutX="258.0" layoutY="109.0" radius="10.0" stroke="#695a9e" strokeType="INSIDE" />
+            <Circle fill="#695a9e" layoutX="258.0" layoutY="97.0" radius="10.0" stroke="#695a9e" strokeType="INSIDE" />
          </children>
       </Pane>
-      <Pane fx:id="sidePanel" layoutX="524.0" layoutY="109.0" prefHeight="50.0" prefWidth="269.0" style="-fx-background-radius: 28 28 0 0; -fx-background-color: FF8811;">
+      <Pane fx:id="sidePanel" layoutX="527.0" layoutY="55.0" prefHeight="50.0" prefWidth="269.0" style="-fx-background-radius: 28 28 0 0; -fx-background-color: FF8811;">
          <children>
             <Text fill="WHITE" layoutX="1.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STATION LOCATOR" textAlignment="CENTER" wrappingWidth="267.08211106061935">
                <font>
