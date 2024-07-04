@@ -38,9 +38,11 @@ body, html {
   font-weight: 700;
   color: #000
 }
+
 .custom-map-control-button:hover {
   background-color: #ebebeb;
 }
+
 .custom-map-control-button:active {
   background-color: #ccc;
 }

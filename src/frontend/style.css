@@ -25,3 +25,7 @@
     -fx-text-alignment: center; 
     -fx-text-origin: bottom;
 }
+
+.city {
+    -fx-text-fill: gray;
+}

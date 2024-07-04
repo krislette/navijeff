@@ -16,12 +16,14 @@ import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.util.Callback;
 
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
-import javafx.geometry.Pos;
 import netscape.javascript.JSObject;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,8 +34,14 @@ import java.util.Map;
 import algorithm.Node;
 import algorithm.Edge;
 import algorithm.AStar;
+
+import javafx.geometry.Pos;
 import javafx.application.Platform;
 import javafx.scene.layout.Pane;
+
+import backend.Location;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
 public class Controller implements Initializable {
 
@@ -51,10 +59,10 @@ public class Controller implements Initializable {
     private Parent root;
     
     @FXML
-    private ComboBox<String> currLocation;
+    private ComboBox<Location> currLocation;
     
     @FXML
-    private ComboBox<String> trgtLocation;
+    private ComboBox<Location> trgtLocation;
     
     @FXML
     private VBox vboxContent;
@@ -73,24 +81,56 @@ public class Controller implements Initializable {
      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-               
         if (currLocation != null && trgtLocation != null) {
-            
             currLocation.setOnAction(event -> getCurrentLocation(event));
             trgtLocation.setOnAction(event -> getTargetLocation(event));
-            
-            currLocation.setItems(FXCollections.observableArrayList(
-                "Phase 1 Church", "Novaliches", "VGC Terminal",
-                "Monumento", "Polo Market", "Naval St. Navotas", "Fisher Malabon", "Quiapo",
-                "San Juan Comelec", "Pasig Blvd. Ext.", "SM Marikina", "EDSA Terminal",
-                "Gateway Mall", "SM Fairview"
-            ));
-            trgtLocation.setItems(FXCollections.observableArrayList(
-                "Phase 1 Church", "Novaliches", "VGC Terminal",
-                "Monumento", "Polo Market", "Naval St. Navotas", "Fisher Malabon", "Quiapo",
-                "San Juan Comelec", "Pasig Blvd. Ext.", "SM Marikina", "EDSA Terminal",
-                "Gateway Mall", "SM Fairview"
-            ));
+
+            // Define the stations with their corresponding city
+            List<Location> locations = List.of(
+                new Location("Phase 1 Church", "North Caloocan"),
+                new Location("Novaliches", "Quezon City"),
+                new Location("VGC Terminal", "Valenzuela"),
+                new Location("Monumento", "South Caloocan"),
+                new Location("Polo Market", "Valenzuela"),
+                new Location("Naval St. Navotas", "Navotas"),
+                new Location("Fisher Malabon", "Malabon"),
+                new Location("Quiapo", "Manila"),
+                new Location("San Juan Comelec", "San Juan"),
+                new Location("Pasig Blvd. Ext.", "Pasig"),
+                new Location("SM Marikina", "Marikina"),
+                new Location("EDSA Terminal", "Mandaluyong"),
+                new Location("Gateway Mall", "Quezon City"),
+                new Location("SM Fairview", "Quezon City")
+            );
+
+            currLocation.setItems(FXCollections.observableArrayList(locations));
+            trgtLocation.setItems(FXCollections.observableArrayList(locations));
+
+            // Set custom cell factory to display location names with guides
+            Callback<ListView<Location>, ListCell<Location>> cellFactory = new Callback<>() {
+                @Override
+                public ListCell<Location> call(ListView<Location> param) {
+                    return new ListCell<>() {
+                        @Override
+                        protected void updateItem(Location item, boolean empty) {
+                            super.updateItem(item, empty);
+                            if (empty || item == null) {
+                                setText(null);
+                            } else {
+                                setText(item.getStation());
+                                
+                                Label lblCity = new Label(" " + item.getCity());
+                                lblCity.getStyleClass().add("city");
+                                setGraphic(lblCity);
+                            }
+                        }
+                    };
+                }
+            };
+            currLocation.setCellFactory(cellFactory);
+            currLocation.setButtonCell(cellFactory.call(null));
+            trgtLocation.setCellFactory(cellFactory);
+            trgtLocation.setButtonCell(cellFactory.call(null));
         }
 
         if (webView != null) {
@@ -146,23 +186,38 @@ public class Controller implements Initializable {
     // Method to ensure currLocation and trgtLocation are initialized before setting values
     public void setInitialLocations(String source, String destination) {
         if (currLocation != null && trgtLocation != null) {
-            currLocation.setValue(source);
-            trgtLocation.setValue(destination);
+            Location srcLocation = findLocationByName(source);
+            Location destLocation = findLocationByName(destination);
+            currLocation.setValue(srcLocation);
+            trgtLocation.setValue(destLocation);
         } else {
             System.out.println("currLocation or trgtLocation is null.");
         }
     }
+    
+    // Helper method to find a Location by name
+    private Location findLocationByName(String name) {
+        return currLocation.getItems().stream()
+                .filter(location -> location.getStation().equals(name))
+                .findFirst().orElse(null);
+    }
         
     // Method to set the location of Current Location from combobox
-    public void getCurrentLocation(ActionEvent event){
-        srcLocation = currLocation.getValue();
-        setLocations(srcLocation, destLocation);
+    public void getCurrentLocation(ActionEvent event) {
+        Location selectedLocation = currLocation.getValue();
+        if (selectedLocation != null) {
+            srcLocation = selectedLocation.getStation();
+            setLocations(srcLocation, destLocation);
+        }
     }
     
     // Method to set the location of Destination Location from combobox
-    public void getTargetLocation(ActionEvent event){
-        destLocation = trgtLocation.getValue();
-        setLocations(srcLocation, destLocation);
+    public void getTargetLocation(ActionEvent event) {
+        Location selectedLocation = trgtLocation.getValue();
+        if (selectedLocation != null) {
+            destLocation = selectedLocation.getStation();
+            setLocations(srcLocation, destLocation);
+        }
     }
     
     // Method to set the nodeMap and edges from Main class
@@ -255,15 +310,13 @@ public class Controller implements Initializable {
         for (Edge edge : edges) {
             if (edge.getSource().equals(sourceNode) && edge.getDestination().equals(destNode)) {
                 double distance = edge.getDistance();
-                if (edge.getDistance() > 4)
-                {
-                double fare = ((distance - 4) * 1.8) + 13;
-                return fare;
+                if (edge.getDistance() > 4) {
+                    double fare = ((distance - 4) * 1.8) + 13;
+                    return fare;
                 } else{
                     double fare = 13;
                     return fare;
                 }
-                
             }
         }
         return 0.0;
@@ -327,9 +380,12 @@ public class Controller implements Initializable {
     }
 
     public void switchGetRoutePage(ActionEvent event) throws IOException {
-        String currentSource = currLocation.getValue();
-        String currentDestination = trgtLocation.getValue();
-
+        Location currentSource = currLocation.getValue();
+        Location currentDestination = trgtLocation.getValue();
+        
+        String currentSourceName = (currentSource != null) ? currentSource.getStation() : "DefaultSource";
+        String currentDestinationName = (currentDestination != null) ? currentDestination.getStation() : "DefaultDestination";
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GetRoute.fxml"));
         root = loader.load();
 
@@ -338,7 +394,7 @@ public class Controller implements Initializable {
         Controller controller = loader.getController();
         controller.setGraphData(nodeMap, edges);
 
-        controller.setInitialLocations(currentSource, currentDestination);
+        controller.setInitialLocations(currentSourceName, currentDestinationName);
 
         stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         Image appIcon = new Image("file:src/images/icon.jpeg");
@@ -356,7 +412,7 @@ public class Controller implements Initializable {
                 if (newState == Worker.State.SUCCEEDED) {
 
                     System.out.println("WebView loaded: " + webEngine.getLocation());
-                    controller.setLocations(currentSource, currentDestination);
+                    controller.setLocations(currentSourceName, currentDestinationName);
                 } else if (newState == Worker.State.FAILED) {
 
                     System.out.println("Failed to load WebView: " + webEngine.getLocation());
