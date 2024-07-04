@@ -106,13 +106,13 @@ async function initMap() {
             strictBounds: false
         },
         styles: [
+            ...lightModeStyles,
             {
                 featureType: "poi",
                 stylers: [
                     { visibility: "off" }
                 ]
-            },
-            lightModeStyles 
+            }
         ],
         zoom: 12,
         mapTypeId: "roadmap",
@@ -138,13 +138,13 @@ async function initMap() {
     lightButton.addEventListener("click", () => {
         lightButton.classList.add("active");
         darkButton.classList.remove("active");
-        map.setOptions({ styles: lightModeStyles });
+        map.setOptions({ styles: [...lightModeStyles, { featureType: "poi", stylers: [{ visibility: "off" }] }] });
     });
 
     darkButton.addEventListener("click", () => {
         darkButton.classList.add("active");
         lightButton.classList.remove("active");
-        map.setOptions({ styles: nightModeStyles });
+        map.setOptions({ styles: [...nightModeStyles, { featureType: "poi", stylers: [{ visibility: "off" }] }] });
     });
 }
 
