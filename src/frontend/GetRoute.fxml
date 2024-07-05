@@ -65,7 +65,7 @@
       </Pane>
       <Pane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #695a9e;">
          <children>
-            <Button id="homeB" alignment="TOP_CENTER" layoutX="600.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToLandingPage" style="-fx-background-color: FFFFFF;" text="Home" textAlignment="CENTER">
+            <Button id="homeB" alignment="TOP_CENTER" layoutX="523.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToLandingPage" style="-fx-background-color: FFFFFF;" text="Home" textAlignment="CENTER">
                <font>
                   <Font name="Lucida Console" size="12.0" />
                </font>
@@ -113,5 +113,20 @@
             <DropShadow blurType="GAUSSIAN" height="10.0" radius="7.25" />
          </effect>
       </Pane>
+      <Button id="homeB" alignment="TOP_CENTER" layoutX="608.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchGetRoutePage" style="-fx-background-color: FFFFFF;" text="Route" textAlignment="CENTER">
+         <font>
+            <Font name="Lucida Console" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/car.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

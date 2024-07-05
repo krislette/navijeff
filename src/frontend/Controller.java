@@ -145,14 +145,6 @@ public class Controller implements Initializable {
                     System.out.println("Loaded: " + webEngine.getLocation());
                     JSObject window = (JSObject) webEngine.executeScript("window");
                     window.setMember("javaApp", this);
-                    
-//                    // Load geopositions JSON and pass to JavaScript
-//                    try {
-//                        String jsonContent = new String(Files.readAllBytes(Paths.get("src/backend/geopositions.json")));
-//                        webEngine.executeScript("window.setStationPins(" + jsonContent + ");");
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
                 } else if (newState == Worker.State.FAILED) {
                     System.out.println("Failed to load: " + webEngine.getLocation());
                     webEngine.getLoadWorker().getException().printStackTrace();
@@ -393,6 +385,15 @@ public class Controller implements Initializable {
         }
         return 0;
     }
+    
+    public void callJavaScriptFunction(String source, String destination) {
+        if (webEngine != null) {
+            String script = String.format("setLocations('%s', '%s');", source, destination);
+            webEngine.executeScript(script);
+        } else {
+            System.out.println("WebEngine is not initialized.");
+        }
+    }
 
     public void switchToLandingPage(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
@@ -449,21 +450,12 @@ public class Controller implements Initializable {
         });
     }
 
-    public void callJavaScriptFunction(String source, String destination) {
-        if (webEngine != null) {
-            String script = String.format("setLocations('%s', '%s');", source, destination);
-            webEngine.executeScript(script);
-        } else {
-            System.out.println("WebEngine is not initialized.");
-        }
-    }
-
     public void switchGetRoutePage(ActionEvent event) throws IOException {
-        Location currentSource = currLocation.getValue();
-        Location currentDestination = trgtLocation.getValue();
-        
-        String currentSourceName = (currentSource != null) ? currentSource.getStation() : "DefaultSource";
-        String currentDestinationName = (currentDestination != null) ? currentDestination.getStation() : "DefaultDestination";
+        Location currentSource = (currLocation != null && currLocation.getValue() != null) ? currLocation.getValue() : new Location("DefaultSource", "");
+        Location currentDestination = (trgtLocation != null && trgtLocation.getValue() != null) ? trgtLocation.getValue() : new Location("DefaultDestination", "");
+
+        String currentSourceName = currentSource.getStation();
+        String currentDestinationName = currentDestination.getStation();
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GetRoute.fxml"));
         root = loader.load();
@@ -489,11 +481,9 @@ public class Controller implements Initializable {
             WebEngine webEngine = webView.getEngine();
             webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
                 if (newState == Worker.State.SUCCEEDED) {
-
                     System.out.println("WebView loaded: " + webEngine.getLocation());
                     controller.setLocations(currentSourceName, currentDestinationName);
                 } else if (newState == Worker.State.FAILED) {
-
                     System.out.println("Failed to load WebView: " + webEngine.getLocation());
                     webEngine.getLoadWorker().getException().printStackTrace();
                 }
