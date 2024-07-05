@@ -22,6 +22,8 @@
   </p>
 </div>
 
+![Demo](https://github.com/krislette/jeepney-navigation/assets/143507354/5c3dc2eb-d4f9-43bc-be48-2d5026904ee9)
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -51,8 +53,8 @@
     <a href="#installation">Installation</a>
     <ul>
       <li><a href="#prerequisites">Prerequisites</a></li>
-      <li><a href="#cloning-the-repository">Cloning the Repository</a></li>
-      <li><a href="#configuring-api-key">Configuring API Key</a></li>
+      <li><a href="#cloning-the-repository-using-cmd">Cloning the Repository</a></li>
+      <li><a href="#configure-api-key">Configuring API Key</a></li>
       <li><a href="#javafx-integration">JavaFX Integration</a></li>
       <li><a href="#json-jar-integration">JSON Jar Integration</a></li>
       <li><a href="#scene-builder-integration-optional">Scene Builder Integration (Optional)</a></li>
