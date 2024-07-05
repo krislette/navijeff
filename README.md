@@ -136,26 +136,34 @@ NaviJeff uses a number of technologies to work properly:
 - Ensure you have **NetBeans IDE** on your local machine. If not, download and install.
 
 ### Cloning the repository using cmd
-1. Fork this repository.
+Cloning using `cmd` is not recommended, as NetBeans IDE has a built-on GUI for cloning.
 
-2. Open your terminal by typing `cmd` on your search bar.
-
-3. Navigate to the directory where you want to clone the repository using the `cd` command.
-```bash
-cd path/to/desired/directory
-```
-
-4. Clone the repository.
-```bash
-git clone https://github.com/krislette/YOUR_REPOSITORY_NAME.git
-```
+<details>
+  <summary><b>Show Instructions</b></summary>
+    1. Fork this repository.
+    
+    2. Open your terminal by typing `cmd` on your search bar.
+    
+    3. Navigate to the directory where you want to clone the repository using the `cd` command.
+    ```bash
+    cd path/to/desired/directory
+    ```
+    
+    4. Clone the repository.
+    ```bash
+    git clone https://github.com/krislette/YOUR_REPOSITORY_NAME.git
+    ```
+</details>
 
 ### Cloning the repository using NetBeans
-1. Open NetBeans IDE.
 
-2. Go to `Team` > `Remote` > `Clone`.
+1. Fork this repository.
 
-3. On the `Repository URL`, enter the url of your forked repository.
+3. Open NetBeans IDE.
+
+4. Go to `Team` > `Remote` > `Clone`.
+
+5. On the `Repository URL`, enter the url of your forked repository.
 ```bash
 https://github.com/krislette/YOUR_REPOSITORY_NAME.git
 ```
