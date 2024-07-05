@@ -274,8 +274,6 @@ To run the program, right-click the project name on your NetBeans IDE and click 
 ## Contributors
 We would like to thank the following contributors for their support and contributions to this project:
 
-## Contributors
-
 <div style="display: flex; align-items: center;">
   <div style="margin-right: 20px;">
     <a href="https://github.com/krislette"><img src="https://avatars.githubusercontent.com/u/143507354?v=4" title="acelle" width="80" height="50"></a>
