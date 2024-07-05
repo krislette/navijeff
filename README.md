@@ -160,6 +160,10 @@ Cloning using `cmd` is not recommended, as NetBeans IDE has a built-on GUI for c
 </details>
 
 ### Cloning the repository using NetBeans
+This is the recommended way of cloning this repository.
+
+<details>
+<summary><b>Show Instructions</b></summary>
 
 1. Fork this repository.
 
@@ -168,15 +172,22 @@ Cloning using `cmd` is not recommended, as NetBeans IDE has a built-on GUI for c
 4. Go to `Team` > `Remote` > `Clone`.
 
 5. On the `Repository URL`, enter the url of your forked repository.
-```bash
-https://github.com/krislette/YOUR_REPOSITORY_NAME.git
-```
+   
+    ```bash
+    https://github.com/krislette/YOUR_REPOSITORY_NAME.git
+    ```
 
 4. Click `Next >` and tick the checkbox `main` that will apear.
 
 5. Click `Finish`.
 
-### Opening the project
+</details>
+
+### Open the Project
+Opening the project on your local machine depends on how you forked this repository.
+
+<details>
+<summary><b>Show Instructions</b></summary>
 
 - If you used the `cmd` to clone your forked repository, open NetBeans and click `Open Project`. From there, find the directory of your forked repository and open it.
 
@@ -185,30 +196,47 @@ https://github.com/krislette/YOUR_REPOSITORY_NAME.git
 > After opening the project, you should see all the files listed on 
 > the [Folder Structure](#Folder-Structure), but without the `config.js` file.
 
-### Configuring API key
+</details>
+
+### Configure API Key
+An **API key** is the most important part of this application, so make sure that you have it, from Google. To know more about getting your own API key, you can check this [video](https://youtu.be/hsNlz7-abd0?si=G-JMXV_MzokUXIEL). After getting your own API key, you can proceed with the instructions.
+
+<details>
+<summary><b>Show Instructions</b></summary>
 
 1. Create a `config.js` file under the backend folder.
 
-2. Make sure that you have an **API key** from Google. To know more about getting your own API key, you can check this [video](https://youtu.be/hsNlz7-abd0?si=G-JMXV_MzokUXIEL). After getting an API key, type the code below on the `config.js` file you just created. Make sure to replace `YOUR_API_KEY_HERE` with your actual API key.
-```javascript
-const GOOGLE_MAPS_API_KEY = "YOUR_API_KEY_HERE";
-```
+2. Type the code below on the `config.js` file you just created. Make sure to replace `YOUR_API_KEY_HERE` with your actual **API key**.
+   
+    ```javascript
+    const GOOGLE_MAPS_API_KEY = "YOUR_API_KEY_HERE";
+    ```
+
+</details>
 
 ### JavaFX Integration
-
 To run the application, you should have **JavaFX** installed within your system. To know more about JavaFX installation, check this [video](https://www.youtube.com/watch?v=Iun8wEtn4Zs&t=1s).
+
+<details>
+<summary><b>Show Instructions</b></summary>
 
 1. Once you have JavaFX installed and configured on your NetBeans IDE, go to the project, right-click and click `Properties`.
 
 2. A dialog box will appear, click `Libraries` and then click the `+` button on the right of `Classpath`.
 
-3. Click `Add Library`, a dialog box will appear again, and navigate through your available libraries. From there, find the **JavaFX library** you created by following the [video](https://www.youtube.com/watch?v=Iun8wEtn4Zs&t=1s).
+3. Click `Add Library`, a dialog box will appear again, and navigate through your available libraries. From there, find the **JavaFX library** you created by following this [video](https://www.youtube.com/watch?v=Iun8wEtn4Zs&t=1s).
 
 4. After finding the **JavaFX library** you have installed, click `Add Library`. You should now see the JavaFX library under your `Classpath`.
 
 5. Before clicking `OK`, click the `Java Platform` dropdown on top, and select the **JDK FX** that you have installed by following the [video](https://www.youtube.com/watch?v=Iun8wEtn4Zs&t=1s). After selecting the correct platform, you can now click `OK` to finalize and save the changes.
 
+</details>
+
 ### JSON Jar Integration
+JSON Jar is an essential component of this application. It is crucial for Java to accurately read our `geopositions.json` file.
+
+<details>
+<summary><b>Show Instructions</b></summary>
 
 1. Go to your project, right-click and click `Properties`.
 
@@ -218,9 +246,13 @@ To run the application, you should have **JavaFX** installed within your system.
 
 4. Click the jar file and click `Open`. You should now see the `json-20210307.jar` file under your `Classpath`, and then click `OK`.
 
-### Scene Builder Integration (Optional)
+</details>
 
+### Scene Builder Integration (Optional)
 If you want to modify the .fxml files (UI), you should have a [Scene Builder](https://gluonhq.com/products/scene-builder/) installed.
+
+<details>
+<summary><b>Show Instructions</b></summary>
 
 1. To add **Scene Builder** to your IDE, click `Tools` on the menu bar of your NetBeans IDE. 
 
@@ -232,14 +264,14 @@ If you want to modify the .fxml files (UI), you should have a [Scene Builder](ht
 
 5. Click `Apply` on the bottom of the dialog box, and then click `OK` to close the dialog box.
 
+</details>
+
 <!-- RUN -->
 ## Run
-
 To run the program, right-click the project name on your NetBeans IDE and click `Clean and Build`. Afterwards, just right-click the project name again and then click `Run`. 
 
 <!-- LICENSE -->
 ## Contributors
-
 We would like to thank the following contributors for their support and contributions to this project:
 
 - [Acelle](https://github.com/krislette) for creating the routing paths using Directions API, JSON data, map page backend, drawing markers, fetching the API key, creating README, and finishing touches.
@@ -253,7 +285,6 @@ We would like to thank the following contributors for their support and contribu
 - [Rijan](https://github.com/pj-drama) for creating the [landing page](#Landing-Page) UI, and adding ideas for the application flow.
 
 ## License
-
 Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See LICENSE.txt for more information.
 
 <p align="right">[<a href="#readme-top">Back to top</a>]</p>
