@@ -146,13 +146,13 @@ public class Controller implements Initializable {
                     JSObject window = (JSObject) webEngine.executeScript("window");
                     window.setMember("javaApp", this);
                     
-                    // Load geopositions JSON and pass to JavaScript
-                    try {
-                        String jsonContent = new String(Files.readAllBytes(Paths.get("src/backend/geopositions.json")));
-                        webEngine.executeScript("window.setStationPins(" + jsonContent + ");");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+//                    // Load geopositions JSON and pass to JavaScript
+//                    try {
+//                        String jsonContent = new String(Files.readAllBytes(Paths.get("src/backend/geopositions.json")));
+//                        webEngine.executeScript("window.setStationPins(" + jsonContent + ");");
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
                 } else if (newState == Worker.State.FAILED) {
                     System.out.println("Failed to load: " + webEngine.getLocation());
                     webEngine.getLoadWorker().getException().printStackTrace();
@@ -172,6 +172,10 @@ public class Controller implements Initializable {
     
     public WebView getWebView() {
         return webView;
+    }
+    
+    public WebEngine getWebEngine() {
+        return webEngine;
     }
     
     public void setStationImage(String stationName) {
@@ -427,6 +431,22 @@ public class Controller implements Initializable {
         stage.show();
 
         System.out.println("Switched to MapPage scene");
+        
+        WebEngine webEngine = controller.getWebEngine();
+        webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
+            if (newState == Worker.State.SUCCEEDED) {
+                // Load geopositions JSON and pass to JavaScript with clickable flag
+                try {
+                    String jsonContent = new String(Files.readAllBytes(Paths.get("src/backend/geopositions.json")));
+                    webEngine.executeScript("window.setStationPins(" + jsonContent + ");");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (newState == Worker.State.FAILED) {
+                System.out.println("Failed to load WebView: " + webEngine.getLocation());
+                webEngine.getLoadWorker().getException().printStackTrace();
+            }
+        });
     }
 
     public void callJavaScriptFunction(String source, String destination) {
