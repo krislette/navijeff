@@ -138,8 +138,7 @@ NaviJeff uses a number of technologies to work properly:
 ### Cloning the repository using cmd
 Cloning using `cmd` is not recommended, as NetBeans IDE has a built-on GUI for cloning.
 
-<details>
-  <summary><b>Show Instructions</b></summary>
+<details><summary><b>Show Instructions</b></summary>
   
     1. Fork this repository.
     
