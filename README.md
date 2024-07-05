@@ -320,7 +320,7 @@ We would like to thank the following contributors for their support and contribu
   </div>
   <div>
     <strong>Rijan</strong>
-    <p>Created the landing page UI and added ideas for the application flow.</p>
+    <p>Created the landing page UI, logos and design components, and added ideas for the application flow.</p>
   </div>
 </div>
 
