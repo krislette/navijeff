@@ -274,15 +274,57 @@ To run the program, right-click the project name on your NetBeans IDE and click 
 ## Contributors
 We would like to thank the following contributors for their support and contributions to this project:
 
-- [Acelle](https://github.com/krislette) for creating the routing paths using Directions API, JSON data, map page backend, drawing markers, fetching the API key, creating README, and finishing touches.
+## Contributors
 
-- [David](https://github.com/perse-v) for creating the algorithm, javascript-java interaction, routing page backend, fixing program logic, and finalizing the map.
+<div style="display: flex; align-items: center;">
+  <div style="margin-right: 20px;">
+    <a href="https://github.com/krislette"><img src="https://avatars.githubusercontent.com/u/143507354?v=4" title="acelle" width="80" height="50"></a>
+  </div>
+  <div>
+    <strong>Acelle</strong>
+    <p>Created the routing paths using Directions API, JSON data, map page backend, drawing markers, fetching the API key, creating README, and finishing touches.</p>
+  </div>
+</div>
 
-- [John Lloyd](https://github.com/JLS0110) for creating the wireframes, [landing page](#Landing-Page) UI, and collating frontend resources from other frontend developers.
+<div style="display: flex; align-items: center;">
+  <div style="margin-right: 20px;">
+    <a href="https://github.com/perse-v"><img src="https://avatars.githubusercontent.com/u/70996290?v=4" title="david" width="60" height="50"></a>
+  </div>
+  <div>
+    <strong>David</strong>
+    <p>Created the algorithm, javascript-java interaction, routing page backend, fixing program logic, and finalizing the map.</p>
+  </div>
+</div>
 
-- [Sophia](https://github.com/sophiarya) for creating the initial wireframes that were adapted to the application, [router page](#Routing-Page) UI, and [map page](#Maps-Page) UI.
+<div style="display: flex; align-items: center;">
+  <div style="margin-right: 20px;">
+    <a href="https://github.com/JLS0110"><img src="https://avatars.githubusercontent.com/u/117716525?v=4" title="jl" width="55" height="50"></a>
+  </div>
+  <div>
+    <strong>John Lloyd</strong>
+    <p>Created the wireframes, landing page UI, and collating frontend resources from other frontend developers.</p>
+  </div>
+</div>
 
-- [Rijan](https://github.com/pj-drama) for creating the [landing page](#Landing-Page) UI, and adding ideas for the application flow.
+<div style="display: flex; align-items: center;">
+  <div style="margin-right: 20px;">
+    <a href="https://github.com/sophiarya"><img src="https://avatars.githubusercontent.com/u/114216486?v=4" title="sophia" width="52" height="50"></a>
+  </div>
+  <div>
+    <strong>Sophia</strong>
+    <p>Created the initial wireframes that were adapted to the application, router page UI, and map page UI.</p>
+  </div>
+</div>
+
+<div style="display: flex; align-items: center;">
+  <div style="margin-right: 20px;">
+    <a href="https://github.com/pj-drama"><img src="https://avatars.githubusercontent.com/u/155222986?v=4" title="rijan" width="50" height="50"></a>
+  </div>
+  <div>
+    <strong>Rijan</strong>
+    <p>Created the landing page UI and added ideas for the application flow.</p>
+  </div>
+</div>
 
 ## License
 Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See LICENSE.txt for more information.
