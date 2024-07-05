@@ -272,11 +272,11 @@ To run the program, right-click the project name on your NetBeans IDE and click 
 
 <!-- LICENSE -->
 ## Contributors
-We would like to thank the following contributors for their support and contributions to this project:
+**We would like to thank the following contributors for their support and contributions to this project:**
 
 <div style="display: flex; align-items: center;">
   <div style="margin-right: 20px;">
-    <a href="https://github.com/krislette"><img src="https://avatars.githubusercontent.com/u/143507354?v=4" title="acelle" width="80" height="50"></a>
+    <a href="https://github.com/krislette"><img src="https://avatars.githubusercontent.com/u/143507354?v=4" title="acelle" width="50" height="50"></a>
   </div>
   <div>
     <strong>Acelle</strong>
@@ -286,7 +286,7 @@ We would like to thank the following contributors for their support and contribu
 
 <div style="display: flex; align-items: center;">
   <div style="margin-right: 20px;">
-    <a href="https://github.com/perse-v"><img src="https://avatars.githubusercontent.com/u/70996290?v=4" title="david" width="60" height="50"></a>
+    <a href="https://github.com/perse-v"><img src="https://avatars.githubusercontent.com/u/70996290?v=4" title="david" width="50" height="50"></a>
   </div>
   <div>
     <strong>David</strong>
@@ -296,7 +296,7 @@ We would like to thank the following contributors for their support and contribu
 
 <div style="display: flex; align-items: center;">
   <div style="margin-right: 20px;">
-    <a href="https://github.com/JLS0110"><img src="https://avatars.githubusercontent.com/u/117716525?v=4" title="jl" width="55" height="50"></a>
+    <a href="https://github.com/JLS0110"><img src="https://avatars.githubusercontent.com/u/117716525?v=4" title="jl" width="50" height="50"></a>
   </div>
   <div>
     <strong>John Lloyd</strong>
@@ -306,7 +306,7 @@ We would like to thank the following contributors for their support and contribu
 
 <div style="display: flex; align-items: center;">
   <div style="margin-right: 20px;">
-    <a href="https://github.com/sophiarya"><img src="https://avatars.githubusercontent.com/u/114216486?v=4" title="sophia" width="52" height="50"></a>
+    <a href="https://github.com/sophiarya"><img src="https://avatars.githubusercontent.com/u/114216486?v=4" title="sophia" width="50" height="50"></a>
   </div>
   <div>
     <strong>Sophia</strong>
