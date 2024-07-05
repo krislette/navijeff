@@ -139,24 +139,24 @@ NaviJeff uses a number of technologies to work properly:
 Cloning using `cmd` is not recommended, as NetBeans IDE has a built-on GUI for cloning.
 
 <details>
-  <summary><b>Show Instructions</b></summary>
+<summary><b>Show Instructions</b></summary>
   
-    1. Fork this repository.
-    
-    2. Open your terminal by typing `cmd` on your search bar.
-    
-    3. Navigate to the directory where you want to clone the repository using the `cd` command.
-       
-      ```bash
-      cd path/to/desired/directory
-      ```
-    
-    4. Clone the repository.
-       
-      ```bash
-      git clone https://github.com/krislette/YOUR_REPOSITORY_NAME.git
-      ```
-    
+1. Fork this repository.
+
+2. Open your terminal by typing `cmd` on your search bar.
+
+3. Navigate to the directory where you want to clone the repository using the `cd` command:
+   
+    ```bash
+    cd path/to/desired/directory
+    ```
+
+4. Clone the repository:
+   
+    ```bash
+    git clone https://github.com/krislette/YOUR_REPOSITORY_NAME.git
+    ```
+
 </details>
 
 ### Cloning the repository using NetBeans
