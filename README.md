@@ -22,7 +22,9 @@
   </p>
 </div>
 
-![Demo](https://github.com/krislette/jeepney-navigation/assets/143507354/5c3dc2eb-d4f9-43bc-be48-2d5026904ee9)
+<div style="text-align: center;">
+  <img src="https://github.com/krislette/jeepney-navigation/assets/143507354/5c3dc2eb-d4f9-43bc-be48-2d5026904ee9" alt="Demo" width="400">
+</div>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
