@@ -140,6 +140,7 @@ Cloning using `cmd` is not recommended, as NetBeans IDE has a built-on GUI for c
 
 <details>
   <summary><b>Show Instructions</b></summary>
+  
     1. Fork this repository.
     
     2. Open your terminal by typing `cmd` on your search bar.
@@ -153,6 +154,7 @@ Cloning using `cmd` is not recommended, as NetBeans IDE has a built-on GUI for c
     ```bash
     git clone https://github.com/krislette/YOUR_REPOSITORY_NAME.git
     ```
+    
 </details>
 
 ### Cloning the repository using NetBeans
