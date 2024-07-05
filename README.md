@@ -23,7 +23,7 @@
 </div>
 
 <div align="center">
-  <img src="https://github.com/krislette/jeepney-navigation/assets/143507354/5c3dc2eb-d4f9-43bc-be48-2d5026904ee9" alt="Demo" width="400">
+  <img src="https://github.com/krislette/jeepney-navigation/assets/143507354/5df67d7a-e259-41dd-9430-09e3ca9a199a" alt="Demo" width="800">
 </div>
 
 <!-- ABOUT THE PROJECT -->
