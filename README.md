@@ -91,19 +91,19 @@ NaviJeff uses a number of technologies to work properly:
 ## Application Snapshots
 
 ### Landing Page
-![Landing Page](https://github.com/krislette/jeepney-navigation/assets/143507354/0715c5e4-51e0-4e87-88b2-ca5633119c4a)
+![Landing Page](https://github.com/krislette/jeepney-navigation/assets/143507354/b8b6898c-2fc9-42f2-9d4b-457a0d87c95f)
 
 ### Routing Page
-![Routing Page](https://github.com/krislette/jeepney-navigation/assets/143507354/deb5725a-0477-4a1e-98ee-d77882c780e6)
+![Routing Page](https://github.com/krislette/jeepney-navigation/assets/143507354/5b4801a1-dc70-4858-a9bd-8711dc9ac2aa)
 
 ### Maps Page
-![Maps Page](https://github.com/krislette/jeepney-navigation/assets/143507354/b71605d3-cc9a-481a-bb30-ff91770dd8c1)
+![Maps Page](https://github.com/krislette/jeepney-navigation/assets/143507354/afb17d59-981a-4ab6-9796-f05a99cd3afd)
 
 ### Satellite View
-![Satellite View](https://github.com/krislette/jeepney-navigation/assets/143507354/62a24ed4-473a-4301-b798-eb90727788cc)
+![Satellite View](https://github.com/krislette/jeepney-navigation/assets/143507354/2efad7e4-c888-44aa-9769-e7ef28212c13)
 
 ### Dark Mode
-![Dark Mode](https://github.com/krislette/jeepney-navigation/assets/143507354/859ae41a-2ffd-4dc0-b3ec-39a6f3daa1f8)
+![Dark Mode](https://github.com/krislette/jeepney-navigation/assets/143507354/5987158b-e745-49f1-858a-0e02cf8a9db6)
 
 <!-- FOLDER STRUCTURE -->
 ## Folder Structure
