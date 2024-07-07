@@ -527,7 +527,6 @@ public class Controller implements Initializable {
 
         Controller controller = loader.getController();
         controller.setGraphData(nodeMap, edges);
-
         controller.setInitialLocations(currentSourceName, currentDestinationName);
 
         stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
