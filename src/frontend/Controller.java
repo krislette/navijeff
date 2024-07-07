@@ -1,13 +1,16 @@
 package frontend;
 
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXMLLoader;
-import javafx.collections.FXCollections;
+import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.scene.image.ImageView;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -35,26 +38,25 @@ import algorithm.Node;
 import algorithm.Edge;
 import algorithm.AStar;
 
-import javafx.geometry.Pos;
-import javafx.application.Platform;
-
-import backend.Location;
-import javafx.scene.image.ImageView;
-
+// Controller class for handling the UI and logic of the application
 public class Controller implements Initializable {
 
-    @FXML
-    private WebView webView;
-    private WebEngine webEngine;
-
+    // Maps to store node data and edges
     private Map<String, Node> nodeMap;
     private List<Edge> edges;
+    
+    // Selected source and destination locations
     private String srcLocation;
     private String destLocation;
 
+    // JavaFX components injected via FXML
     private Stage stage;
     private Scene scene;
     private Parent root;
+    
+    @FXML
+    private WebView webView;
+    private WebEngine webEngine;
     
     @FXML
     private ComboBox<Location> currLocation;
@@ -87,6 +89,7 @@ public class Controller implements Initializable {
      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // Initialize current and target location ComboBoxes
         if (currLocation != null && trgtLocation != null) {
             currLocation.setOnAction(event -> getCurrentLocation(event));
             trgtLocation.setOnAction(event -> getTargetLocation(event));
@@ -134,9 +137,11 @@ public class Controller implements Initializable {
             trgtLocation.setButtonCell(cellFactory.call(null));
         }
 
+        // Initialize WebView for displaying map
         if (webView != null) {
             webEngine = webView.getEngine();
 
+            // Load local HTML file for map display
             String localUrl = Paths.get("src/backend/map.html").toUri().toString();
             webEngine.load(localUrl);
                 
@@ -162,14 +167,21 @@ public class Controller implements Initializable {
         this.isImageSet = false;
     }
     
+    // Getter for the WebView component
     public WebView getWebView() {
         return webView;
     }
     
+    // Getter for the WebEngine component
     public WebEngine getWebEngine() {
         return webEngine;
     }
     
+    /**
+     * Sets the station image based on the given station name.
+     * 
+     * @param stationName The name of the station.
+     */
     public void setStationImage(String stationName) {
         switch (stationName) {
             case "Phase 1 Church":
@@ -220,7 +232,12 @@ public class Controller implements Initializable {
         }
     }
     
-    // Method called from JavaScript to update location info
+    /**
+     * Displays location information on the UI.
+     * 
+     * @param stationName The name of the station.
+     * @param address The address of the station.
+     */
     public void displayLocationInfo(String stationName, String address) {
         Platform.runLater(() -> {
             locationName.setText(stationName);
@@ -238,7 +255,12 @@ public class Controller implements Initializable {
         });
     }
     
-    // Method to ensure currLocation and trgtLocation are initialized before setting values
+    /**
+     * Sets the initial source and destination locations in the ComboBoxes.
+     * 
+     * @param source The source location.
+     * @param destination The destination location.
+     */
     public void setInitialLocations(String source, String destination) {
         if (currLocation != null && trgtLocation != null) {
             Location sourceLocation = findLocationByName(source);
@@ -250,14 +272,19 @@ public class Controller implements Initializable {
         }
     }
     
-    // Helper method to find a Location by name
+    /**
+     * Helper method that finds a Location object by its name.
+     * 
+     * @param name The name of the location.
+     * @return The Location object if found, otherwise null.
+     */
     private Location findLocationByName(String name) {
         return currLocation.getItems().stream()
                 .filter(location -> location.getStation().equals(name))
                 .findFirst().orElse(null);
     }
         
-    // Method to set the location of Current Location from combobox
+    // Event handler for selecting the current location from ComboBox.
     public void getCurrentLocation(ActionEvent event) {
         Location selectedLocation = currLocation.getValue();
         if (selectedLocation != null) {
@@ -266,7 +293,7 @@ public class Controller implements Initializable {
         }
     }
     
-    // Method to set the location of Destination Location from combobox
+    // Event handler for selecting the target location from ComboBox.
     public void getTargetLocation(ActionEvent event) {
         Location selectedLocation = trgtLocation.getValue();
         if (selectedLocation != null) {
@@ -281,7 +308,12 @@ public class Controller implements Initializable {
         this.edges = Main.getEdges();
     }
 
-    // Method to set source and destination locations and draw path
+    /**
+     * Sets the initial source and destination locations.
+     * 
+     * @param source The source location name.
+     * @param destination The destination location name.
+     */
     public void setLocations(String source, String destination) {
         this.srcLocation = source;
         this.destLocation = destination;
@@ -291,7 +323,10 @@ public class Controller implements Initializable {
         calculateAndDrawPath();
     }
 
-    // Function to calculate and draw path using A* algorithm
+    /**
+     * Calculates and draws the path using the A* algorithm between 
+     * the selected source and destination nodes.
+     */
     private void calculateAndDrawPath() {
         Node sourceNode = nodeMap.get(srcLocation);
         Node destNode = nodeMap.get(destLocation);
@@ -299,6 +334,7 @@ public class Controller implements Initializable {
         if (sourceNode != null && destNode != null) {
             List<Node> path = AStar.findPath(sourceNode, destNode, edges);
             path.forEach(System.out::println);
+            System.out.println("-".repeat(30));
 
             // Check if vboxContent is not null before accessing it
             if (vboxContent != null) {
@@ -361,6 +397,13 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * Calculates the fare between two nodes based on distance.
+     *
+     * @param sourceNode The source node.
+     * @param destNode   The destination node.
+     * @return The calculated fare.
+     */
     private double getFare(Node sourceNode, Node destNode) {
         for (Edge edge : edges) {
             if (edge.getSource().equals(sourceNode) && edge.getDestination().equals(destNode)) {
@@ -377,6 +420,13 @@ public class Controller implements Initializable {
         return 0.0;
     }
 
+     /**
+     * Retrieves the distance between two nodes.
+     *
+     * @param sourceNode The source node.
+     * @param destNode   The destination node.
+     * @return The distance between the two nodes.
+     */
     private double getDistanceToNextNode(Node sourceNode, Node destNode) {
         for (Edge edge : edges) {
             if (edge.getSource().equals(sourceNode) && edge.getDestination().equals(destNode)) {
@@ -386,15 +436,13 @@ public class Controller implements Initializable {
         return 0;
     }
     
-    public void callJavaScriptFunction(String source, String destination) {
-        if (webEngine != null) {
-            String script = String.format("setLocations('%s', '%s');", source, destination);
-            webEngine.executeScript(script);
-        } else {
-            System.out.println("WebEngine is not initialized.");
-        }
-    }
-
+    /**
+     * Switches the scene to the LandingPage view.
+     * Loads LandingPage.fxml and sets up the controller with graph data.
+     *
+     * @param event The action event triggering the scene switch.
+     * @throws IOException If an error occurs while loading the FXML file.
+     */
     public void switchToLandingPage(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
         root = loader.load();
@@ -414,6 +462,14 @@ public class Controller implements Initializable {
         System.out.println("Switched to LandingPage scene");
     }
 
+    /**
+     * Switches the scene to the MapPage view.
+     * Loads MapPage.fxml and sets up the controller with graph data.
+     * Initializes WebView and loads geopositions JSON data for station pins on the map.
+     *
+     * @param event The action event triggering the scene switch.
+     * @throws IOException If an error occurs while loading the FXML file.
+     */
     public void switchToMapPage(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MapPage.fxml"));
         root = loader.load();
@@ -450,6 +506,13 @@ public class Controller implements Initializable {
         });
     }
 
+    /**
+     * Switches the scene to the GetRoute view.
+     * Loads GetRoute.fxml and sets up the controller with graph data.
+     *
+     * @param event The action event triggering the scene switch.
+     * @throws IOException If an error occurs while loading the FXML file.
+     */
     public void switchGetRoutePage(ActionEvent event) throws IOException {
         Location currentSource = (currLocation != null && currLocation.getValue() != null) ? currLocation.getValue() : new Location("DefaultSource", "");
         Location currentDestination = (trgtLocation != null && trgtLocation.getValue() != null) ? trgtLocation.getValue() : new Location("DefaultDestination", "");

@@ -23,21 +23,24 @@ public class Main extends Application {
     private static Map<String, Node> nodeMap;
     private static List<Edge> edges;
 
+    // Getter for the nodeMap
     public static Map<String, Node> getNodeMap() {
         return nodeMap;
     }
 
+    // Getter for the edges
     public static List<Edge> getEdges() {
         return edges;
     }
-    // Create NODES and EDGES
+    
+    // Main method with node and edge creation
     public static void main(String[] args) {
         List<Node> nodes = new ArrayList<>();
         edges = new ArrayList<>();
         nodeMap = new HashMap<>();
 
         try {
-            // Load JSON content
+            // Load JSON content from file
             String content = new String(Files.readAllBytes(Paths.get("src/backend/geopositions.json")));
             JSONObject jsonObject = new JSONObject(content);
 
@@ -71,12 +74,14 @@ public class Main extends Application {
                 }
             }
             
+            // Launch JavaFX application
             launch(args);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     
+    // Method invoked by JavaFX to start the application
     @Override
     public void start(Stage stage) {
         try {

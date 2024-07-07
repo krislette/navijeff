@@ -2,6 +2,7 @@ let map;
 let markers = [];
 let pathPolyline;
 
+// Bounds for metro manila
 const METRO_MANILA_BOUNDS = {
     north: 14.8855000,
     south: 14.4460529,
@@ -9,8 +10,10 @@ const METRO_MANILA_BOUNDS = {
     east: 121.2350312
 };
 
+// Styles for light mode
 const lightModeStyles = [];
 
+// Styles for dark mode
 const nightModeStyles = [
     { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
     { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
@@ -92,6 +95,7 @@ const nightModeStyles = [
     }
 ];
 
+// Initializes the map
 async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
 
@@ -120,6 +124,7 @@ async function initMap() {
         streetViewControl: false
     });
     
+    // Create custom map control for switching between light and dark mode
     const controlDiv = document.createElement('div');
     controlDiv.classList.add('custom-map-control');
 
@@ -135,6 +140,7 @@ async function initMap() {
 
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(controlDiv);
 
+    // Event listeners for light and dark mode buttons
     lightButton.addEventListener("click", () => {
         lightButton.classList.add("active");
         darkButton.classList.remove("active");
@@ -148,6 +154,7 @@ async function initMap() {
     });
 }
 
+// Returns the icon image for jeepney markers
 function getJeepneyIcon() {
     return {
         url: "../images/jeepney-pin.png",
@@ -155,6 +162,7 @@ function getJeepneyIcon() {
     };
 }
 
+// Adds a marker (jeepney pin) to the map
 function addMarker(location, title, clickable = false) {
     const marker = new google.maps.Marker({
         position: location,
@@ -163,6 +171,7 @@ function addMarker(location, title, clickable = false) {
         icon: getJeepneyIcon()
     });
     
+    // Event listener for clicking on a marker to display location information
     if (clickable) {
         google.maps.event.addListener(marker, "click", () => {
             const geocoder = new google.maps.Geocoder();
@@ -184,6 +193,7 @@ function addMarker(location, title, clickable = false) {
     markers.push(marker);
 }
 
+// Clears existing markers and path polyline from the map
 function clearExistingMapElements() {
     markers.forEach(marker => marker.setMap(null));
     markers = [];
@@ -193,6 +203,7 @@ function clearExistingMapElements() {
     }
 }
 
+// Adds markers along the path
 function addPathMarkers(pathData) {
     const pathPoints = JSON.parse(pathData);
     pathPoints.forEach(point => {
@@ -200,6 +211,7 @@ function addPathMarkers(pathData) {
     });
 }
 
+// Initializes the path polyline on the map
 function initializePathPolyline() {
     const path = new google.maps.MVCArray();
     pathPolyline = new google.maps.Polyline({
@@ -212,6 +224,7 @@ function initializePathPolyline() {
     pathPolyline.setPath(path);
 }
 
+// Sets map bounds based on the path coordinates
 function setMapBounds(pathData) {
     const bounds = new google.maps.LatLngBounds();
     const pathPoints = JSON.parse(pathData);
@@ -221,6 +234,7 @@ function setMapBounds(pathData) {
     map.fitBounds(bounds);
 }
 
+// Processes path segments for routing and draws the path polyline
 function processPathSegments(pathCoordinates, index, directionsService, path) {
     if (index >= pathCoordinates.length - 1) return;
 
@@ -241,6 +255,7 @@ function processPathSegments(pathCoordinates, index, directionsService, path) {
     });
 }
 
+// Draws the path on the map
 function drawPath(pathData) {
     clearExistingMapElements();
     addPathMarkers(pathData);
@@ -254,6 +269,7 @@ function drawPath(pathData) {
     processPathSegments(pathCoordinates, 0, directionsService, pathPolyline.getPath());
 }
 
+// Adds all station pins on the map
 function setStationPins(geopositions) {
     const nodes = geopositions.nodes;
 
@@ -263,6 +279,7 @@ function setStationPins(geopositions) {
     });
 }
 
+// Initializes the map when the DOM content is loaded
 document.addEventListener("DOMContentLoaded", () => {
     const apiKey = GOOGLE_MAPS_API_KEY;
     const script = document.createElement("script");
