@@ -11,7 +11,7 @@
   <p align="center">
     Your Commuting Buddy
     <br />
-    <a href="https://github.com/krislette/jeepney-navigation"><strong>Explore the docs »</strong></a>
+    <a href="https://drive.google.com/file/d/1_mS9XFtDYCbNf0mvgVbapzYGzSBVAQ6M/view?usp=sharing"><strong>Explore the paper »</strong></a>
     <br />
     <br />
     <a href="https://github.com/krislette/jeepney-navigation">View Demo</a>
