@@ -16,7 +16,7 @@
     <br />
     <a href="#demo">View Demo</a>
     ·
-    <a href="https:///jeepney-navigation/issues">Report Bug</a>
+    <a href="https://github.com/krislette/jeepney-navigation/issues">Report Bug</a>
     ·
     <a href="https://github.com/krislette/jeepney-navigation/issues">Request Feature</a>
   </p>
