@@ -129,7 +129,8 @@ NaviJeff uses a number of technologies to work properly:
     │ ├──── Main.java                 # Program entry point
     │ ├──── MapPage.fxml              # Map page UI
     │ └──── style.css                 # For additional styling
-    └── images                        # All images used in the app
+    ├── images                        # All styling images used in the app
+    └── places                        # All place images used in the app
     README.md
 
 <!-- INSTALLATION -->
