@@ -141,7 +141,7 @@ NaviJeff uses a number of technologies to work properly:
 - Ensure you have **NetBeans IDE** on your local machine. If not, download and install.
 
 ### Cloning the repository using cmd
-Cloning using `cmd` is not recommended, as NetBeans IDE has a built-on GUI for cloning.
+Cloning using `cmd` is not recommended, as NetBeans IDE has a built-in GUI for cloning.
 
 <details>
 <summary><b>Show Instructions</b></summary>
@@ -330,6 +330,6 @@ To run the program, right-click the project name on your NetBeans IDE and click 
 </div>
 
 ## License
-Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See LICENSE.txt for more information.
+Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See [LICENSE](LICENSE) for more information.
 
 <p align="right">[<a href="#readme-top">Back to top</a>]</p>
