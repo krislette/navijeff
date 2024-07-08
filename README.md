@@ -204,7 +204,7 @@ Opening the project on your local machine depends on how you forked this reposit
 </details>
 
 ### Configure API Key
-An **API key** is the most important part of this application, so make sure that you have it, from Google. To know more about getting your own API key, you can check this [video](https://youtu.be/hsNlz7-abd0?si=G-JMXV_MzokUXIEL). After getting your own API key, you can proceed with the instructions.
+An **API key** is the most important part of this application, so make sure that you have it, from Google. To know more about getting your own API key, you can check this [video](https://youtu.be/hsNlz7-abd0?si=G-JMXV_MzokUXIEL). You can also contact the [developers](#contributors) to borrow the API key that they have used. After getting your own API key, you can proceed with the instructions.
 
 <details>
 <summary><b>Show Instructions</b></summary>
@@ -285,7 +285,7 @@ To run the program, right-click the project name on your NetBeans IDE and click 
   </div>
   <div>
     <strong>Acelle</strong>
-    <p>Created the routing paths using Directions API, JSON data, map page backend, drawing markers, fetching the API key, creating README, and finishing touches.</p>
+    <p>Created the routing paths, JSON data, map page backend, drawing markers, fetching the API key, creating README, and finishing touches.</p>
   </div>
 </div>
 
