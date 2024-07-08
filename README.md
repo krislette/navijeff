@@ -14,7 +14,7 @@
     <a href="https://drive.google.com/file/d/1_mS9XFtDYCbNf0mvgVbapzYGzSBVAQ6M/view?usp=sharing"><strong>Explore the paper »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/krislette/jeepney-navigation">View Demo</a>
+    <a href="#demo">View Demo</a>
     ·
     <a href="https:///jeepney-navigation/issues">Report Bug</a>
     ·
@@ -23,7 +23,7 @@
 </div>
 
 <div align="center">
-  <img src="https://github.com/krislette/jeepney-navigation/assets/143507354/5df67d7a-e259-41dd-9430-09e3ca9a199a" alt="Demo" width="800">
+  <img id="demo" src="https://github.com/krislette/jeepney-navigation/assets/143507354/5df67d7a-e259-41dd-9430-09e3ca9a199a" alt="Demo" width="800">
 </div>
 
 <!-- ABOUT THE PROJECT -->
