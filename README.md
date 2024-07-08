@@ -16,7 +16,7 @@
     <br />
     <a href="https://github.com/krislette/jeepney-navigation">View Demo</a>
     ·
-    <a href="https://github.com/krislette/jeepney-navigation/issues">Report Bug</a>
+    <a href="https:///jeepney-navigation/issues">Report Bug</a>
     ·
     <a href="https://github.com/krislette/jeepney-navigation/issues">Request Feature</a>
   </p>
@@ -159,7 +159,7 @@ Cloning using `cmd` is not recommended, as NetBeans IDE has a built-on GUI for c
 4. Clone the repository:
    
     ```bash
-    git clone https://github.com/krislette/YOUR_REPOSITORY_NAME.git
+    git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
     ```
 
 </details>
@@ -179,7 +179,7 @@ This is the recommended way of cloning this repository.
 5. On the `Repository URL`, enter the url of your forked repository.
    
     ```bash
-    https://github.com/krislette/YOUR_REPOSITORY_NAME.git
+    https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
     ```
 
 4. Click `Next >` and tick the checkbox `main` that will apear.
